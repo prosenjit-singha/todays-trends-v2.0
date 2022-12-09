@@ -14,4 +14,7 @@ export const darkMode = createTheme({
       },
     },
   },
+  typography: {
+    fontFamily: '"Poppins", "Roboto","Helvetica","Arial",sans-serif',
+  },
 });
