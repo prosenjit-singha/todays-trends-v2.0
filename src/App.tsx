@@ -1,10 +1,6 @@
-import {
-  CssBaseline,
-  ThemeProvider,
-  Typography,
-  Container,
-  Paper,
-} from "@mui/material";
+import { router } from "./routes/router";
+import { RouterProvider } from "react-router-dom";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { darkMode } from "./styles/theme";
 
 function App() {
@@ -12,14 +8,7 @@ function App() {
     <>
       <ThemeProvider theme={darkMode}>
         <CssBaseline enableColorScheme />
-        <Container>
-          <Paper variant="elevation">
-            <Typography variant="h2" color="">
-              {" "}
-              Hello
-            </Typography>
-          </Paper>
-        </Container>
+        <RouterProvider router={router} />
       </ThemeProvider>
     </>
   );
