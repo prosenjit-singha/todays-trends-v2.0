@@ -1,9 +1,28 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import {
+  CssBaseline,
+  ThemeProvider,
+  Typography,
+  Container,
+  Paper,
+} from "@mui/material";
+import { darkMode } from "./styles/theme";
 
 function App() {
-  return <h1>Hello PJ</h1>;
+  return (
+    <>
+      <ThemeProvider theme={darkMode}>
+        <CssBaseline enableColorScheme />
+        <Container>
+          <Paper variant="elevation">
+            <Typography variant="h2" color="">
+              {" "}
+              Hello
+            </Typography>
+          </Paper>
+        </Container>
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;
