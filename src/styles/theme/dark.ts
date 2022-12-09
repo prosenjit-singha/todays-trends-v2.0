@@ -7,4 +7,11 @@ export const darkMode = createTheme({
   shape: {
     borderRadius: 0,
   },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
 });
