@@ -1,6 +1,7 @@
 # Today-s-Trends
 
 # Introduction
+
 After the discovery of the internet, everything is available in our
 hands. Nowadays people don’t need to buy a hardcopy of a
 newspaper in order to know what’s going on around the world. The
@@ -20,6 +21,7 @@ Trends’ is actually following today’s trend of being smarter than
 before.
 
 # Features
+
 ❖ Fully Responsive: The app will resize itself to preserve the user
 experience and look and feel across all devices — with no irritating
 zooming, scrolling or resizing, so you can use it on your cell phone or
@@ -47,6 +49,22 @@ terms.
 other sources are saying about a certain topic. The app will have
 news from CNN, BBC etc.
 
-# Environment Setup
-1. Install react using npx create-react-app
-2. Install Alan AI using npm i @alan-ai/alan-sdk-web @material-ui/core classnames words-to-numbers
+## How To Clone and Run
+
+1. First clone the repo
+
+```sh
+git clone https://github.com/prosenjit-singha/todays-trends-v2.0.git
+```
+
+2. Go inside the cloned directory and run this command
+
+```sh
+npm install
+```
+
+3. After that just run the app
+
+```sh
+npm start
+```
