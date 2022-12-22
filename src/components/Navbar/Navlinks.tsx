@@ -20,7 +20,7 @@ function Navlinks() {
         component="ul"
         direction="row"
         spacing={2}
-        sx={{ listStyle: "none" }}
+        sx={{ listStyle: "none", pl: 0, mr: 1.5 }}
       >
         <li>
           {" "}

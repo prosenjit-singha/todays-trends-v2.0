@@ -1,12 +1,13 @@
 import { router } from "./routes/router";
 import { RouterProvider } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { darkMode } from "./styles/theme";
+import { useThemeToggler } from "./context/ThemeToggler";
 
 function App() {
+  const { theme } = useThemeToggler();
   return (
     <>
-      <ThemeProvider theme={darkMode}>
+      <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme />
         <RouterProvider router={router} />
       </ThemeProvider>
