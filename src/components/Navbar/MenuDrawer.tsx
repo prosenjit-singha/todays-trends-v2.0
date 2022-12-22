@@ -1,5 +1,6 @@
 import {
   styled,
+  Switch,
   SwipeableDrawer,
   List,
   ListItem,
@@ -12,7 +13,11 @@ import InfoIcon from "@mui/icons-material/InfoOutlined";
 import NewsIcon from "@mui/icons-material/NewspaperOutlined";
 import ContactIcon from "@mui/icons-material/ContactMailOutlined";
 import ArrowRight from "@mui/icons-material/ArrowForwardRounded";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Link } from "react-router-dom";
+import { useThemeToggler } from "../../context/ThemeToggler";
+import { AntSwitch } from "../styled/switches";
+
 // import ListIcon from '@mui/icons-material/ListAltOutlined';
 
 type PropsType = {
@@ -22,6 +27,7 @@ type PropsType = {
 };
 
 function MenuDrawer({ open, onClose, onOpen }: PropsType) {
+  const { theme, toggleTheme } = useThemeToggler();
   function handleLinkClick() {
     handleClose();
   }
@@ -68,20 +74,29 @@ function MenuDrawer({ open, onClose, onOpen }: PropsType) {
           ))}
         </List>
       </nav>
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton sx={{ pl: 4, pr: 4 }} onClick={toggleTheme}>
+            <ListItemIcon>
+              <DarkModeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Dark Mode" />
+            <AntSwitch
+              edge="end"
+              checked={theme.palette.mode === "dark"}
+              inputProps={{
+                "aria-labelledby": "switch-list-label-wifi",
+              }}
+              sx={{ pointerEvents: "none", ml: 3 }}
+            />
+          </ListItemButton>
+        </ListItem>
+      </List>
     </SwipeableDrawer>
   );
 }
 
 export default MenuDrawer;
-
-// const ListItemButton = styled(LIB)`
-//   padding-left: 2rem;
-//   padding-right: 3rem;
-// `;
-
-// const ListItemIcon = styled(LII)`
-//   min-width: 40px;
-// `;
 
 const navlinks = [
   {
