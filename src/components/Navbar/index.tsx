@@ -11,6 +11,7 @@ import Logo from "../Logo";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { useThemeToggler } from "../../context/ThemeToggler";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function Navbar() {
   const { theme, toggleTheme } = useThemeToggler();
@@ -45,13 +46,16 @@ function Navbar() {
           </IconButton>
         </Tooltip>
         {/* Menu button */}
-        <Button
-          sx={{
-            display: ["block", "block", "none"],
-          }}
-        >
-          Menu
-        </Button>
+        <Tooltip title="Menu" describeChild>
+          <IconButton
+            sx={{
+              display: ["flex", "flex", "none"],
+              p: 0.5,
+            }}
+          >
+            <MenuIcon fontSize="large" />
+          </IconButton>
+        </Tooltip>
       </Toolbar>
     </AppBar>
   );

@@ -79,6 +79,7 @@ const Banner = styled(SwiperSlide)(({ theme }) => ({
   minHeight: "300px",
   width: "100% !important",
   padding: 24,
+  overflow: "hidden",
 }));
 
 const Content = styled("div")`
