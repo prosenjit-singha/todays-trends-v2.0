@@ -47,7 +47,7 @@ function Navbar() {
         {/* Menu button */}
         <Button
           sx={{
-            display: ["block", "none"],
+            display: ["block", "block", "none"],
           }}
         >
           Menu

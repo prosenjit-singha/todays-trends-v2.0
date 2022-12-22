@@ -1,4 +1,4 @@
-import { styled, Stack } from "@mui/material";
+import { styled, Stack, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const NavLink = styled(Link)(({ theme }) => ({
@@ -15,7 +15,15 @@ const NavLink = styled(Link)(({ theme }) => ({
 
 function Navlinks() {
   return (
-    <nav>
+    <Box
+      component="nav"
+      sx={{
+        display: {
+          xs: "none",
+          md: "block",
+        },
+      }}
+    >
       <Stack
         component="ul"
         direction="row"
@@ -39,7 +47,7 @@ function Navlinks() {
           <NavLink to="/contact-us">Contact Us</NavLink>
         </li>
       </Stack>
-    </nav>
+    </Box>
   );
 }
 
