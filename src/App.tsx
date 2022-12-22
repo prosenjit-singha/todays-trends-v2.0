@@ -1,7 +1,8 @@
 import { router } from "./routes/router";
 import { RouterProvider } from "react-router-dom";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider, GlobalStyles } from "@mui/material";
 import { useThemeToggler } from "./context/ThemeToggler";
+import { globalStyles } from "./styles/globalStyles";
 
 function App() {
   const { theme } = useThemeToggler();
@@ -9,6 +10,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme />
+        <GlobalStyles styles={(p) => globalStyles(p)} />
         <RouterProvider router={router} />
       </ThemeProvider>
     </>

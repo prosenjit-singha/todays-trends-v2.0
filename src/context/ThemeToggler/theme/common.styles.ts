@@ -1,4 +1,4 @@
-import { ThemeOptions, Zoom } from "@mui/material";
+import { ThemeOptions } from "@mui/material";
 
 export const commonStyles: ThemeOptions = {
   shape: {
@@ -14,7 +14,6 @@ export const commonStyles: ThemeOptions = {
       defaultProps: {
         arrow: true,
         enterDelay: 500,
-        TransitionComponent: Zoom,
       },
       styleOverrides: {
         tooltip: {
