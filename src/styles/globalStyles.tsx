@@ -7,6 +7,9 @@ export const globalStyles = (theme: Theme) => css`
   html {
     scroll-behavior: smooth;
   }
+  body {
+    overflow: overlay;
+  }
   .swiper-pagination-bullet {
     background-color: ${theme.palette.primary.main};
   }

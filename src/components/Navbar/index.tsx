@@ -1,20 +1,17 @@
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  IconButton,
-  lighten,
-  Tooltip,
-} from "@mui/material";
+import { AppBar, Toolbar, IconButton, lighten, Tooltip } from "@mui/material";
 import Navlinks from "./Navlinks";
 import Logo from "../Logo";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { useThemeToggler } from "../../context/ThemeToggler";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import MenuDrawer from "./MenuDrawer";
 
 function Navbar() {
   const { theme, toggleTheme } = useThemeToggler();
+  const [open, setOpen] = useState(false);
+
   return (
     <AppBar
       sx={{
@@ -52,11 +49,17 @@ function Navbar() {
               display: ["flex", "flex", "none"],
               p: 0.5,
             }}
+            onClick={() => setOpen(!open)}
           >
             <MenuIcon fontSize="large" />
           </IconButton>
         </Tooltip>
       </Toolbar>
+      <MenuDrawer
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+      />
     </AppBar>
   );
 }
