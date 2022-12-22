@@ -1,19 +1,31 @@
-import { styled, Stack, Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { styled, Stack, Box, Theme } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
-const NavLink = styled(Link)(({ theme }) => ({
-  cursor: "pointer",
-  textDecoration: "none",
-  color: theme.palette.text.secondary,
-  ":visited": {
-    color: "initial",
-  },
-  ":hover": {
-    color: theme.palette.text.primary,
-  },
-}));
+type NavLinkPropsType = {
+  theme: Theme;
+  active?: string | undefined;
+};
+
+const NavLink = styled(Link)<{ active?: string | undefined }>(
+  ({ theme, active }) => ({
+    cursor: "pointer",
+    textDecoration: "none",
+    color: active ? theme.palette.text.primary : theme.palette.text.secondary,
+    ":visited": {
+      color: theme.palette.text.secondary,
+    },
+    ":hover": {
+      color: theme.palette.text.primary,
+    },
+  })
+);
 
 function Navlinks() {
+  const { pathname } = useLocation();
+
+  function isActive(link: string) {
+    return pathname === link ? "active" : undefined;
+  }
   return (
     <Box
       component="nav"
@@ -32,19 +44,27 @@ function Navlinks() {
       >
         <li>
           {" "}
-          <NavLink to="/">Home</NavLink>
+          <NavLink active={isActive("/")} to="/">
+            Home
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/news">News</NavLink>
+          <NavLink active={isActive("/news")} to="/news">
+            News
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/about">About</NavLink>
+          <NavLink active={isActive("/about")} to="/about">
+            About
+          </NavLink>
         </li>
         <li>
           {" "}
-          <NavLink to="/contact-us">Contact Us</NavLink>
+          <NavLink active={isActive("/contact-us")} to="/contact-us">
+            Contact Us
+          </NavLink>
         </li>
       </Stack>
     </Box>
