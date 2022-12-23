@@ -1,4 +1,13 @@
-import { css, Theme } from "@mui/material";
+import { css, Theme, keyframes } from "@mui/material";
+
+const focusKeyframes = keyframes`
+  0%, 100%{
+    transform: scaleX(0.7);
+  }
+  50%{
+    transform: scaleX(0.8);
+  }
+`;
 
 export const globalStyles = (theme: Theme) => css`
   * {
@@ -12,5 +21,27 @@ export const globalStyles = (theme: Theme) => css`
   }
   .swiper-pagination-bullet {
     background-color: ${theme.palette.primary.main};
+  }
+  .custom-focus {
+    position: relative;
+    outline: none;
+    z-index: 5;
+    ::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10em;
+      background-color: ${theme.palette.primary.main + "32"};
+      transform: scale(0);
+      z-index: -1;
+      /* display: none; */
+    }
+    &:focus-visible::before {
+      display: block;
+      animation: ${focusKeyframes} 2.5s ease infinite;
+    }
   }
 `;

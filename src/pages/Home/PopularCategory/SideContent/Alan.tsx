@@ -33,10 +33,14 @@ function Alan() {
     >
       <Image src={bg} alt="Alan Background" />
       <Content>
-        <Typography textAlign="center" variant="h5">
+        <Typography
+          textAlign="center"
+          variant="h5"
+          color="rgba(255,255,255,0.95)"
+        >
           Meet Alan
         </Typography>
-        <Typography textAlign="center" my={0.5}>
+        <Typography textAlign="center" my={0.5} color="rgba(255,255,255,0.87)">
           The most powerful open-source voice recognizer.
         </Typography>
         <Button variant="contained" sx={{ mt: 2 }}>

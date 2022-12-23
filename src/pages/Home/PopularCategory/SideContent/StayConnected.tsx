@@ -18,7 +18,7 @@ function StayConnected() {
       <Typography variant="h5">Stay Connected</Typography>
       <List>
         {socialLinks.map(({ id, Icon, followers, bg }) => (
-          <ListItem disablePadding sx={{ mt: 0.5 }}>
+          <ListItem key={id} disablePadding sx={{ mt: 0.5 }}>
             <ListItemButton>
               <ListItemIcon sx={{ minWidth: "fit-content" }}>
                 <Icon size="1.5rem" />
