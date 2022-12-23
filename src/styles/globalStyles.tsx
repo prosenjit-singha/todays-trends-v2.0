@@ -18,6 +18,15 @@ const focusKeyframes = keyframes`
   }
 `;
 
+const fadeKeyframes = keyframes`
+  0%,100% {
+    opacity: 0;
+  }
+  50% {
+    opacity:0.5;
+  }
+`;
+
 export const globalStyles = (theme: Theme) => css`
   * {
     box-sizing: border-box;
@@ -51,5 +60,8 @@ export const globalStyles = (theme: Theme) => css`
       animation: ${enterAnimation} 250ms ease forwards,
         ${focusKeyframes} 2.5s ease infinite 250ms;
     }
+  }
+  .animate-fade {
+    animation: ${fadeKeyframes} 3s infinite ease;
   }
 `;
