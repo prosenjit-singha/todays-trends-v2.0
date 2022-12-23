@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import ArticleType from "../Types/Article.types";
 
 type PropsType = {
   q?: string;
@@ -31,7 +32,11 @@ const useFetchNews = ({
 
   return useQuery({
     queryKey: ["top-headings"],
-    queryFn: async () => (await axios.get("news.json")).data,
+    queryFn: (): Promise<ArticleType[]> =>
+      axios
+        .get("news.json")
+        .then(({ data }) => data.articles)
+        .catch((err) => console.error(err)),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     // staleTime: Infinity,

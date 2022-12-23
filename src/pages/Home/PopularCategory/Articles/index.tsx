@@ -14,14 +14,14 @@ import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import useFetchNews from "../../../../hooks/useFetchNews";
 
-function Articles() {
+function Articles({ category }: { category: string }) {
   const [loaded, setLoaded] = useState(false);
-  const { data, isLoading } = useFetchNews({
+  const { data: articles = [], isLoading } = useFetchNews({
     param: "everything",
     q: "bitcoin",
     pageSize: 12,
+    category,
   });
-  console.info(data);
   return (
     <Container>
       <FirstArticle component={Link} to="" className="custom-focus">
@@ -42,8 +42,12 @@ function Articles() {
           <Chip
             color="primary"
             variant="outlined"
-            label="Tech"
-            sx={{ borderRadius: 0, width: "fit-content" }}
+            label={category}
+            sx={{
+              borderRadius: 0,
+              width: "fit-content",
+              textTransform: "capitalize",
+            }}
           />
           <Title variant="h5">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -60,8 +64,8 @@ function Articles() {
           </Stack>
         </Content>
       </FirstArticle>
-      {[1, 2, 3, 4, 5, 6].map((i) => (
-        <Article key={i} />
+      {articles.map((article, i) => (
+        <Article key={i} category={category} data={article} />
       ))}
     </Container>
   );

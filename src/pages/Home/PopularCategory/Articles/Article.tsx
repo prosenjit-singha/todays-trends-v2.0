@@ -1,16 +1,10 @@
-import {
-  styled,
-  Stack,
-  Typography,
-  Chip,
-  LinkProps,
-  lighten,
-} from "@mui/material";
+import { styled, Stack, Typography, Chip, lighten } from "@mui/material";
 import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
-import React from "react";
+import { format } from "date-fns";
+import ArticleType from "../../../../Types/Article.types";
 
-function Article() {
+function Article({ category, data }: { category: string; data: ArticleType }) {
   return (
     <Container as={Link} to="/news" className="custom-focus">
       <ImageContainer>
@@ -20,15 +14,12 @@ function Article() {
         <Chip
           style={{ borderRadius: 0 }}
           size="small"
-          label="Technology"
+          label={category}
           color="primary"
           variant="outlined"
-          sx={{ width: "fit-content" }}
+          sx={{ width: "fit-content", textTransform: "capitalize" }}
         />
-        <Title variant="h6">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio
-          obcaecati minus iusto!
-        </Title>
+        <Title variant="h6">{data?.title}</Title>
         <Stack
           color="text.secondary"
           direction="row"
@@ -36,7 +27,7 @@ function Article() {
           alignItems="center"
         >
           <SlCalender />
-          <Typography>12/05/2022</Typography>
+          <Typography>{format(new Date(data.publishedAt), "PP")}</Typography>
         </Stack>
       </Stack>
     </Container>

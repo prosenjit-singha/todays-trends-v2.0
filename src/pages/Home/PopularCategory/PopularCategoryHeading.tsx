@@ -6,12 +6,12 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-function PopularCategoryHeading() {
-  const [category, setCategory] = useState("technology");
-  function handleChange(event: React.MouseEvent<HTMLElement>, value: string) {
-    if (value !== null) setCategory(value);
-  }
-  // console.info(category);
+type PropsType = {
+  category: string;
+  onChange: (event: React.MouseEvent<HTMLElement>, value: string) => void;
+};
+
+function PopularCategoryHeading({ category, onChange }: PropsType) {
   return (
     <Stack direction="row" flexWrap="wrap">
       <Typography variant="h4" mr="auto" sx={{ mb: { xs: 2, md: 0 } }}>
@@ -21,7 +21,7 @@ function PopularCategoryHeading() {
         sx={{ width: { xs: "100%", sm: "auto" } }}
         color="primary"
         value={category}
-        onChange={handleChange}
+        onChange={onChange}
         exclusive
         aria-label="Most Popular Category Toggler"
       >
