@@ -1,10 +1,6 @@
-import { styled, Stack, Box, Theme } from "@mui/material";
+import { styled, Stack, Box } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-
-type NavLinkPropsType = {
-  theme: Theme;
-  active?: string | undefined;
-};
+import navlinks from "../../data/navlinks";
 
 const NavLink = styled(Link)<{ active?: string | undefined }>(
   ({ theme, active }) => ({
@@ -42,30 +38,14 @@ function Navlinks() {
         spacing={2}
         sx={{ listStyle: "none", pl: 0, mr: 1.5 }}
       >
-        <li>
-          {" "}
-          <NavLink active={isActive("/")} to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          {" "}
-          <NavLink active={isActive("/news")} to="/news">
-            News
-          </NavLink>
-        </li>
-        <li>
-          {" "}
-          <NavLink active={isActive("/about")} to="/about">
-            About
-          </NavLink>
-        </li>
-        <li>
-          {" "}
-          <NavLink active={isActive("/contact-us")} to="/contact-us">
-            Contact Us
-          </NavLink>
-        </li>
+        {navlinks.map(({ to, text }, i) => (
+          <li key={i}>
+            {" "}
+            <NavLink active={isActive(to)} to={to}>
+              {text}
+            </NavLink>
+          </li>
+        ))}
       </Stack>
     </Box>
   );

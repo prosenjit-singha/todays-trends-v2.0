@@ -1,6 +1,4 @@
 import {
-  styled,
-  Switch,
   SwipeableDrawer,
   List,
   ListItem,
@@ -8,17 +6,12 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import HomeIcon from "@mui/icons-material/CottageOutlined";
-import InfoIcon from "@mui/icons-material/InfoOutlined";
-import NewsIcon from "@mui/icons-material/NewspaperOutlined";
-import ContactIcon from "@mui/icons-material/ContactMailOutlined";
 import ArrowRight from "@mui/icons-material/ArrowForwardRounded";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Link } from "react-router-dom";
 import { useThemeToggler } from "../../context/ThemeToggler";
 import { AntSwitch } from "../styled/switches";
-
-// import ListIcon from '@mui/icons-material/ListAltOutlined';
+import navlinks from "../../data/navlinks";
 
 type PropsType = {
   open: boolean;
@@ -55,6 +48,7 @@ function MenuDrawer({ open, onClose, onOpen }: PropsType) {
           </ListItemButton>
         </ListItem>
       </List>
+      {/* Nav links */}
       <nav aria-label="main mailbox folders">
         <List>
           {navlinks.map(({ text, Icon, to }, i) => (
@@ -97,26 +91,3 @@ function MenuDrawer({ open, onClose, onOpen }: PropsType) {
 }
 
 export default MenuDrawer;
-
-const navlinks = [
-  {
-    Icon: HomeIcon,
-    to: "/",
-    text: "Home",
-  },
-  {
-    Icon: NewsIcon,
-    to: "/news",
-    text: "News",
-  },
-  {
-    Icon: ContactIcon,
-    to: "/contact-us",
-    text: "Contact Us",
-  },
-  {
-    Icon: InfoIcon,
-    to: "/about",
-    text: "About",
-  },
-];
