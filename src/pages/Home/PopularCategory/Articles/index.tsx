@@ -1,7 +1,16 @@
-import { styled, Box, css, lighten } from "@mui/material";
+import {
+  styled,
+  Box,
+  css,
+  lighten,
+  Typography,
+  Chip,
+  Stack,
+} from "@mui/material";
 import Article from "./Article";
 import ImageThumb from "../../../../components/ImageThumb";
 import { useState } from "react";
+import { SlCalender } from "react-icons/sl";
 
 function Articles() {
   const [loaded, setLoaded] = useState(false);
@@ -21,6 +30,27 @@ function Articles() {
           onLoad={() => setLoaded(true)}
           src="https://source.unsplash.com/random/300x300"
         />
+        <Content>
+          <Chip
+            color="primary"
+            variant="outlined"
+            label="Tech"
+            sx={{ borderRadius: 0, width: "fit-content" }}
+          />
+          <Title variant="h5">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Accusantium, autem.
+          </Title>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            color="text.secondary"
+          >
+            <SlCalender />
+            <Typography>12.5.2022</Typography>
+          </Stack>
+        </Content>
       </FirstArticle>
       {[1, 2, 3, 4, 5, 6].map((i) => (
         <Article key={i} />
@@ -66,4 +96,23 @@ const Image = styled("img")`
   width: 100%;
   object-fit: cover;
   object-position: center;
+`;
+
+const Content = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled(Typography)`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
