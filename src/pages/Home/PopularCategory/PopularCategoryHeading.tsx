@@ -4,7 +4,6 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
-import { useState } from "react";
 
 type PropsType = {
   category: string;

@@ -1,5 +1,12 @@
 import React from "react";
-import { styled, Stack, Typography, Chip, lighten } from "@mui/material";
+import {
+  styled,
+  Stack,
+  Typography,
+  Chip,
+  lighten,
+  darken,
+} from "@mui/material";
 import { SlCalender } from "react-icons/sl";
 import { format } from "date-fns";
 import ArticleType from "../../../../Types/Article.types";
@@ -76,7 +83,9 @@ const Container = styled(Stack)<{ href: string; target: string }>`
   :hover {
     outline: 1px solid ${({ theme }) => theme.palette.divider};
     background-color: ${({ theme }) =>
-      lighten(theme.palette.background.paper, 0.035)};
+      theme.palette.mode === "dark"
+        ? lighten(theme.palette.background.paper, 0.035)
+        : darken(theme.palette.background.paper, 0.035)};
   }
   :hover img {
     transform: scale(1.1);

@@ -6,6 +6,7 @@ import {
   Typography,
   Chip,
   Stack,
+  Skeleton,
 } from "@mui/material";
 import Article from "./Article";
 import ImageThumb from "../../../../components/ImageThumb";
@@ -14,6 +15,7 @@ import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import useFetchNews from "../../../../hooks/useFetchNews";
 import ArticleSkeleton from "./Article.skeleton";
+import FirstArticle from "./FirstArticle";
 
 function Articles({ category }: { category: string }) {
   const [loaded, setLoaded] = useState(false);
@@ -25,49 +27,15 @@ function Articles({ category }: { category: string }) {
   });
   return (
     <Container>
-      <FirstArticle component={Link} to="" className="custom-focus">
-        <Image
-          onLoad={() => setLoaded(true)}
-          src="https://source.unsplash.com/random/300x300"
+      {articles.length && (
+        <FirstArticle
+          data={articles[0]}
+          isLoading={isLoading}
+          category={category}
         />
-        {!loaded && (
-          <ImageThumb
-            style={{
-              width: "70%",
-              height: "70%",
-              transform: "translate(8%, 0%)",
-            }}
-          />
-        )}
-        <Content>
-          <Chip
-            color="primary"
-            variant="outlined"
-            label={category}
-            sx={{
-              borderRadius: 0,
-              width: "fit-content",
-              textTransform: "capitalize",
-            }}
-          />
-          <Title variant="h5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Accusantium, autem.
-          </Title>
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-            color="rgba(255,255,255,0.85)"
-          >
-            <SlCalender />
-            <Typography>12.5.2022</Typography>
-          </Stack>
-        </Content>
-      </FirstArticle>
-      {[1, 2, 3, 4].map((i) => (
-        <ArticleSkeleton key={i} delay={i} />
-      ))}
+      )}
+      {isLoading &&
+        [1, 2, 3, 4].map((i) => <ArticleSkeleton key={i} delay={i} />)}
       {articles.map((article, i) => (
         <Article key={i} category={category} data={article} />
       ))}
@@ -101,30 +69,30 @@ const Image = styled("img")`
   transition: transform 300ms cubic-bezier(0.52, 0.03, 0.25, 1.08);
 `;
 
-const FirstArticle = styled(Box)<{ to?: string }>`
-  position: relative;
-  grid-column: 1/1;
-  grid-row: 1/3;
-  position: relative;
-  background-color: ${({ theme }) =>
-    lighten(theme.palette.background.paper, 0.035)};
+// const FirstArticle = styled(Box)<{ to?: string }>`
+//   position: relative;
+//   grid-column: 1/1;
+//   grid-row: 1/3;
+//   position: relative;
+//   background-color: ${({ theme }) =>
+//     lighten(theme.palette.background.paper, 0.035)};
 
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.95);
-  overflow: hidden;
-  transition: outline 200ms ease-out;
-  :hover {
-    outline: 1px solid ${({ theme }) => theme.palette.divider};
-  }
-  &:hover > img {
-    transform: scale(1.1);
-  }
-`;
+//   background-size: cover;
+//   background-position: center;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   text-decoration: none;
+//   color: rgba(255, 255, 255, 0.95);
+//   overflow: hidden;
+//   transition: outline 200ms ease-out;
+//   :hover {
+//     outline: 1px solid ${({ theme }) => theme.palette.divider};
+//   }
+//   &:hover > img {
+//     transform: scale(1.1);
+//   }
+// `;
 
 const Content = styled(Box)`
   position: absolute;
