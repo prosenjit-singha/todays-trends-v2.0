@@ -1,8 +1,5 @@
 import { Stack, IconButton, Typography } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import socialLinks from "../../data/socialLinks";
 
 function FollowIUs() {
   return (
@@ -17,18 +14,11 @@ function FollowIUs() {
           transform: "translateX(-1.25%)",
         }}
       >
-        <IconButton sx={{ p: 0.5 }}>
-          <FacebookIcon />
-        </IconButton>
-        <IconButton sx={{ p: 0.5 }}>
-          <InstagramIcon />
-        </IconButton>
-        <IconButton sx={{ p: 0.5 }}>
-          <TwitterIcon />
-        </IconButton>
-        <IconButton sx={{ p: 0.5 }}>
-          <LinkedInIcon />
-        </IconButton>
+        {socialLinks.map(({ id, Icon }) => (
+          <IconButton key={id} sx={{ p: 0.5 }}>
+            <Icon />
+          </IconButton>
+        ))}
       </Stack>
     </Stack>
   );
