@@ -3,40 +3,24 @@ import {
   Chip,
   lighten,
   darken,
-  Skeleton,
   Stack,
   styled,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import ImageThumb from "../../../../components/ImageThumb";
 import { SlCalender } from "react-icons/sl";
 import ArticleType from "../../../../Types/Article.types";
 import { format } from "date-fns";
 
 type PropsType = {
-  isLoading: boolean;
   category: string;
   data: ArticleType;
 };
-function FirstArticle({ isLoading, category, data }: PropsType) {
+function FirstArticle({ category, data }: PropsType) {
   const [loaded, setLoaded] = useState(false);
   return (
-    <Container
-      as="a"
-      href={data.url}
-      target="_blank"
-      className="custom-focus"
-      sx={{ pointerEvents: isLoading ? "none" : "auto" }}
-    >
-      {!isLoading && (
-        <Image
-          onLoad={() => setLoaded(true)}
-          src={data.urlToImage}
-          alt="News Thumbnail"
-        />
-      )}
+    <Container as="a" href={data.url} target="_blank" className="custom-focus">
       {!loaded && (
         <ImageThumb
           style={{
@@ -46,48 +30,35 @@ function FirstArticle({ isLoading, category, data }: PropsType) {
           }}
         />
       )}
-      {isLoading && (
-        <Content sx={{ bgcolor: "transparent" }}>
-          <Skeleton
-            variant="rectangular"
-            width={100}
-            height={32}
-            sx={{ mb: 1.5 }}
-          />
-          <Skeleton variant="rectangular" sx={{ mb: 1, fontSize: 20 }} />
-          <Skeleton variant="rectangular" sx={{ mb: 1, fontSize: 20 }} />
-          <Skeleton
-            variant="rectangular"
-            width={100}
-            sx={{ mb: 1, mt: 0.5, fontSize: 16 }}
-          />
-        </Content>
-      )}
-      {!isLoading && (
-        <Content>
-          <Chip
-            color="primary"
-            variant="outlined"
-            label={category}
-            sx={{
-              borderRadius: 0,
-              width: "fit-content",
-              textTransform: "capitalize",
-            }}
-          />
+      <Image
+        onLoad={() => setLoaded(true)}
+        src={data.urlToImage}
+        alt="News Thumbnail"
+      />
 
-          <Title variant="h5">{data.title}</Title>
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-            color="rgba(255,255,255,0.85)"
-          >
-            <SlCalender />
-            <Typography>{format(new Date(data.publishedAt), "PP")}</Typography>
-          </Stack>
-        </Content>
-      )}
+      <Content>
+        <Chip
+          color="primary"
+          variant="outlined"
+          label={category}
+          sx={{
+            borderRadius: 0,
+            width: "fit-content",
+            textTransform: "capitalize",
+          }}
+        />
+
+        <Title variant="h5">{data.title}</Title>
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={1}
+          color="rgba(255,255,255,0.85)"
+        >
+          <SlCalender />
+          <Typography>{format(new Date(data.publishedAt), "PP")}</Typography>
+        </Stack>
+      </Content>
     </Container>
   );
 }

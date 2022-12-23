@@ -1,24 +1,11 @@
-import {
-  styled,
-  Box,
-  css,
-  lighten,
-  Typography,
-  Chip,
-  Stack,
-  Skeleton,
-} from "@mui/material";
+import { styled, Box, Typography } from "@mui/material";
 import Article from "./Article";
-import ImageThumb from "../../../../components/ImageThumb";
-import { useState } from "react";
-import { SlCalender } from "react-icons/sl";
-import { Link } from "react-router-dom";
 import useFetchNews from "../../../../hooks/useFetchNews";
 import ArticleSkeleton from "./Article.skeleton";
 import FirstArticle from "./FirstArticle";
+import FirstArticleSkeleton from "./FirstArticle.skeleton";
 
 function Articles({ category }: { category: string }) {
-  const [loaded, setLoaded] = useState(false);
   const { data: articles = [], isLoading } = useFetchNews({
     param: "everything",
     q: "bitcoin",
@@ -27,18 +14,19 @@ function Articles({ category }: { category: string }) {
   });
   return (
     <Container>
-      {articles.length && (
-        <FirstArticle
-          data={articles[0]}
-          isLoading={isLoading}
-          category={category}
-        />
-      )}
+      {isLoading && <FirstArticleSkeleton />}
       {isLoading &&
         [1, 2, 3, 4].map((i) => <ArticleSkeleton key={i} delay={i} />)}
-      {articles.map((article, i) => (
-        <Article key={i} category={category} data={article} />
-      ))}
+
+      {!isLoading && articles.length && (
+        <FirstArticle data={articles[0]} category={category} />
+      )}
+      {!isLoading &&
+        articles
+          .slice(1, 5)
+          .map((article, i) => (
+            <Article key={i} category={category} data={article} />
+          ))}
     </Container>
   );
 }

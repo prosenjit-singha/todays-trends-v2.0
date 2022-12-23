@@ -1,21 +1,6 @@
-import {
-  Box,
-  Chip,
-  lighten,
-  darken,
-  Skeleton,
-  Stack,
-  styled,
-  Typography,
-} from "@mui/material";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import ImageThumb from "../../../../components/ImageThumb";
-import { SlCalender } from "react-icons/sl";
-import ArticleType from "../../../../Types/Article.types";
-import { format } from "date-fns";
+import { Box, lighten, darken, Skeleton, styled } from "@mui/material";
 
-function FirstArticle() {
+function FirstArticleSkeleton() {
   return (
     <Container>
       <Content sx={{ bgcolor: "transparent" }}>
@@ -37,7 +22,7 @@ function FirstArticle() {
   );
 }
 
-export default FirstArticle;
+export default FirstArticleSkeleton;
 
 const Container = styled(Box)`
   position: relative;
