@@ -1,0 +1,206 @@
+{
+  "status": "ok",
+  "totalResults": 36,
+  "articles": [
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Zachary Cohen, Annie Grayer, Jeremy Herb, Tierney Sneed, Devan Cole, Geneva Sands, Katelyn Polantz, Hannah Rabinowitz",
+      "title": "Jan. 6 committee releases final report, says Trump should be barred from office - CNN",
+      "description": "The House select committee investigating the January 6, 2021, insurrection recommends barring former President Donald Trump from holding office again.",
+      "url": "https://www.cnn.com/2022/12/22/politics/jan-6-committee-final-report/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221221111848-january-6-capitol-riot-file-010621.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-23T12:39:00Z",
+      "content": "The House select committee investigating the January 6, 2021, insurrection recommends barring former President Donald Trump from holding office again.\r\nThe recommendation is among the conclusions of … [+16914 chars]"
+    },
+    {
+      "source": { "id": "reuters", "name": "Reuters" },
+      "author": null,
+      "title": "China's stretched health system braces for peak in COVID infections - Reuters",
+      "description": "China is expecting a peak in COVID-19 infections within a week, a health official said, with authorities predicting extra strain on the country's health system even as they downplay the disease's severity and continue to report no new deaths.",
+      "url": "https://www.reuters.com/world/china/chinas-stretched-health-system-braces-peak-covid-infections-2022-12-23/",
+      "urlToImage": "https://www.reuters.com/resizer/2SeeohwWq3rSL33jDWnEdZbO3x4=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/7ECIEFBVPRPNPEPSHY6FMSVESY.jpg",
+      "publishedAt": "2022-12-23T12:03:00Z",
+      "content": "BEIJING/SHANGHAI, Dec 23 (Reuters) - China is expecting a peak in COVID-19 infections within a week, a health official said, with authorities predicting extra strain on the country's health system ev… [+5739 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Sugam Pokharel, Alex Hardie, Duarte Mendonca",
+      "title": "Charles Sobhraj: French serial killer 'The Serpent' released from Nepali jail - CNN",
+      "description": "Charles Sobhraj, the infamous French serial killer who inspired the award-nominated TV series \"The Serpent,\" walked free from a Nepali prison Friday.",
+      "url": "https://www.cnn.com/2022/12/23/asia/charles-sobhraj-released-nepal-intl/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221223052412-charles-sobhraj-released-nepal-intl.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-23T11:08:00Z",
+      "content": "Charles Sobhraj, the infamous French serial killer who inspired the award-nominated TV series The Serpent, walked free from a Nepali prison Friday. \r\nSobhraj has been released from the jail. He has b… [+2416 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "David J. Lopez",
+      "title": "In interview hours before his death, Franco Harris says 'Immaculate Reception' play 'blows my mind' - CNN",
+      "description": "Fifty years after the \"Immaculate Reception\" and just hours before his death, Franco Harris said it \"blows my mind\" how he pulled off arguably the most memorable play in NFL history.",
+      "url": "https://www.cnn.com/2022/12/23/sport/franco-harris-immaculate-reception-anniversary-ctrp/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221221083508-franco-harris-immaculate-reception-file-122372.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-23T10:10:00Z",
+      "content": "Fifty years after the Immaculate Reception and just hours before his death, Franco Harris said it blows my mind how he pulled off arguably the most memorable play in NFL history.\r\nIn a live interview… [+5254 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Yoonjung Seo, Emiko Jozuka, Jessie Yeung",
+      "title": "North Korea fires short-range ballistic missiles, South Korea says - CNN",
+      "description": "North Korea launched two short-range ballistic missiles on Friday, according to South Korean officials, the latest in an unprecedented year of weapons testing.",
+      "url": "https://www.cnn.com/2022/12/23/asia/north-korea-fires-ballistic-missile-intl-hnk/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221028003811-01-north-korea-missile-kim-jong-un-file.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-23T08:37:00Z",
+      "content": "North Korea launched two short-range ballistic missiles on Friday, according to South Korean officials, the latest in an unprecedented year of weapons testing.\r\nThe missiles were fired from Pyongyang… [+871 chars]"
+    },
+    {
+      "source": { "id": "fox-news", "name": "Fox News" },
+      "author": "Elizabeth Pritchett",
+      "title": "Winter storm moving across US results in warnings, cold weather alerts for more than 150 million Americans - Fox News",
+      "description": "Christmas weekend will plunge into a deep freeze thanks to a dangerous blizzard that is intensifying into a powerful bomb cyclone as it barrels east across the United States.",
+      "url": "https://www.foxnews.com/us/winter-storm-moving-across-us-results-warnings-cold-weather-alerts-more-than-150-million-americans",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/12/12winterstorm-12.23.22.jpg",
+      "publishedAt": "2022-12-23T07:53:09Z",
+      "content": "A massive winter storm moving east across the United States is bringing bitter cold and life-threatening temperatures to dozens of states heading into Christmas weekend. A widespread flash freeze is … [+5629 chars]"
+    },
+    {
+      "source": { "id": null, "name": "BBC News" },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "Airport strikes: Travellers warned to expect disruption - BBC",
+      "description": "Border Force staff are walking out in a row over pay while rail passengers face industrial action.",
+      "url": "https://www.bbc.com/news/business-64060584",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/11E4A/production/_128109237_passportgetty.png",
+      "publishedAt": "2022-12-23T07:34:11Z",
+      "content": "Hundreds of thousands of travellers arriving in the UK have been told to expect disruption as passport control workers begin strikes.\r\nBorder Force staff are the latest UK workers to take industrial … [+5180 chars]"
+    },
+    {
+      "source": { "id": null, "name": "The Moscow Times" },
+      "author": "AFP",
+      "title": "North Korea Sold Arms to Russia's Wagner Group, U.S. Says - The Moscow Times",
+      "description": "North Korea has delivered arms to Russia's private military group Wagner, the White House said Thursday, calling the mercenary enterprise a \"rival\" for power to the defense and other ministries in the Kremlin.",
+      "url": "https://www.themoscowtimes.com/2022/12/23/north-korea-sold-arms-to-russias-wagner-group-us-says-a79782",
+      "urlToImage": "https://static.themoscowtimes.com/image/og/bb/79782__bbe0beaa1a5bef3660807d16a9860d74.jpg",
+      "publishedAt": "2022-12-23T06:32:27Z",
+      "content": "North Korea has delivered arms to Russia's private military group Wagner, the White House said Thursday, calling the mercenary enterprise a \"rival\" for power to the defense and other ministries in th… [+4193 chars]"
+    },
+    {
+      "source": { "id": "fox-news", "name": "Fox News" },
+      "author": "Scott Thompson",
+      "title": "Jaguars collect third straight win as Jets bench Zach Wilson again after brutal performance - Fox News",
+      "description": "A battle between the top two picks of the 2021 NFL Draft saw Trevor Lawrence come out on top for the Jaguars, their third straight win, while Jets QB Zach Wilson was benched.",
+      "url": "https://www.foxnews.com/sports/jaguars-collect-third-straight-win-jets-bench-zach-wilson-again-brutal-performance",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/12/trevor-lawrence.jpg",
+      "publishedAt": "2022-12-23T05:16:35Z",
+      "content": "The Jacksonville Jaguars continue to roll, defeating the New York Jets, 19-3, to win their third straight game and keep their playoff hopes alive. \r\nIt was a rainy, windy night in East Rutherford, N.… [+4169 chars]"
+    },
+    {
+      "source": { "id": null, "name": "The Athletic" },
+      "author": "Ken Rosenthal",
+      "title": "Rosenthal: How did Mets and Carlos Correa land at 12 years, $315 million? - The Athletic",
+      "description": "It’s not all that complicated.",
+      "url": "https://theathletic.com/4029332/2022/12/22/mets-correa-contract-details/",
+      "urlToImage": "https://cdn.theathletic.com/app/uploads/2022/12/22153823/USATSI_18737386-1024x683.jpg",
+      "publishedAt": "2022-12-23T04:08:14Z",
+      "content": "So, how was it that the Mets and Carlos Correa settled at 12 years and $315 million when they reached agreement on a free-agent contract early Wednesday morning?\r\nIts not all that complicated: The Me… [+2560 chars]"
+    },
+    {
+      "source": { "id": "the-washington-post", "name": "The Washington Post" },
+      "author": "Gus Garcia-Roberts",
+      "title": "Trevor Bauer is reinstated immediately as arbitrator reduces suspension - The Washington Post",
+      "description": "The Los Angeles Dodgers pitcher had been suspended two full seasons for violating MLB’s domestic violence and sexual assault policy.",
+      "url": "https://www.washingtonpost.com/sports/2022/12/22/trevor-bauer-reinstated/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/OS3TU7GTQZBN5P3HQPO4OZMM2M.jpg&w=1440",
+      "publishedAt": "2022-12-23T04:01:00Z",
+      "content": "Comment on this story\r\nAn arbitrator reduced Los Angeles Dodgers pitcher Trevor Bauers two-season suspension Thursday, resulting in the immediate reinstatement of the 2020 National League Cy Young Aw… [+5516 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Brenda Goodman",
+      "title": "Target recalls Pillowfort weighted blankets for kids after two deaths - CNN",
+      "description": "Target stores are recalling more than 200,000 weighted blankets for children that have been sold by the retailer from December 2018 through September 2022. The Pillowfort brand blankets can trap children inside if they unzip them and enter the blanket.",
+      "url": "https://www.cnn.com/2022/12/22/health/weighted-blankets-kids-recall-target/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221222204806-target-weighted-blankets-recall.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-12-23T03:56:00Z",
+      "content": "Target stores are recalling more than 200,000 weighted blankets for children that have been sold by the retailer from December 2018 through September 2022. \r\nThe Pillowfort brand blankets can trap ch… [+991 chars]"
+    },
+    {
+      "source": { "id": "the-verge", "name": "The Verge" },
+      "author": "Richard Lawler",
+      "title": "FTX co-founder Sam Bankman-Fried is back in the US, released on $250 million bail - The Verge",
+      "description": "Sam Bankman-Fried was released from federal custody to live with his parents while awaiting trial on fraud and money laundering charges relating to his failed crypto exchange FTX.",
+      "url": "https://www.theverge.com/2022/12/22/23523149/sam-bankman-fried-250m-bail-ftx-crypto-fraud",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/hKTsJ4kH95ULYiT6T8TXIYcteWE=/221x79:4775x2900/1200x628/filters:focal(2505x1214:2506x1215)/cdn.vox-cdn.com/uploads/chorus_asset/file/24312564/1245786421.jpg",
+      "publishedAt": "2022-12-23T02:17:00Z",
+      "content": "FTX co-founder Sam Bankman-Fried is back in the US, released on $250 million bail\r\nFTX co-founder Sam Bankman-Fried is back in the US, released on $250 million bail\r\n / Former executives from SBFs cr… [+4226 chars]"
+    },
+    {
+      "source": { "id": "the-verge", "name": "The Verge" },
+      "author": "Mitchell Clark",
+      "title": "Read Microsoft's response to the FTC's Activision Blizzard lawsuit - The Verge",
+      "description": "Microsoft is once again explaining why it should be allowed to buy Activision Blizzard King, this time in response to a lawsuit brought on by regulators who expressed concern about competition.",
+      "url": "https://www.theverge.com/23523563/read-microsoft-response-ftc-antitrust-complaint-activision-blizzard-king",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/n2SnFRk93CgmoGa7JQVfCM4V5v8=/0x0:3000x2000/1200x628/filters:focal(1500x1000:1501x1001)/cdn.vox-cdn.com/uploads/chorus_asset/file/23926024/acastro_STK048_03.jpg",
+      "publishedAt": "2022-12-23T02:17:00Z",
+      "content": "Read Microsofts response to the FTCs Activision Blizzard lawsuit\r\nRead Microsofts response to the FTCs Activision Blizzard lawsuit\r\n / The company has filed a 37-page document explaining why it think… [+2744 chars]"
+    },
+    {
+      "source": { "id": "reuters", "name": "Reuters" },
+      "author": null,
+      "title": "Elon Musk says he will not sell more Tesla stock for about two years - Reuters",
+      "description": "Tesla <a href=\"https://www.reuters.com/companies/TSLA.O\" target=\"_blank\">(TSLA.O)</a> Chief Executive Officer Elon Musk said on Thursday he will not sell any more Tesla stock for about two years.",
+      "url": "https://www.reuters.com/business/autos-transportation/elon-musk-says-he-will-not-sell-more-tesla-stock-another-two-years-2022-12-22/",
+      "urlToImage": "https://www.reuters.com/resizer/AyVgxhhmnydNnMPLwc-iNXGG6o8=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/4M5SMPSF7VKYTIU24S7DTDHDAQ.jpg",
+      "publishedAt": "2022-12-23T02:02:00Z",
+      "content": "Dec 22 (Reuters) - Tesla (TSLA.O) Chief Executive Officer Elon Musk said on Thursday he will not sell any more Tesla stock for about two years.\r\nWhile speaking in a Twitter Spaces audio chat, Musk sa… [+2749 chars]"
+    },
+    {
+      "source": { "id": null, "name": "KHOU.com" },
+      "author": "Jaime E. Galvan",
+      "title": "Hard freeze warning | Wind chill to drop below zero by 7 a.m. - KHOU.com",
+      "description": "Temperatures dropped into the teens Friday morning with wind chill in the single digits.",
+      "url": "https://www.khou.com/article/weather/hard-freeze-warning-houston/285-a5d1f65e-3e04-453b-a208-765751822b8d",
+      "urlToImage": "https://media.khou.com/assets/KHOU/images/d14833c1-a82f-42f3-a10f-cf65159b7183/d14833c1-a82f-42f3-a10f-cf65159b7183_1140x641.jpg",
+      "publishedAt": "2022-12-23T01:58:11Z",
+      "content": "HOUSTON The arctic blast we've been talking about for the last few days has arrived in Southeast Texas and is bringing below-freezing temperatures heading into the Christmas holiday weekend.\r\nBoth st… [+9765 chars]"
+    },
+    {
+      "source": { "id": "the-washington-post", "name": "The Washington Post" },
+      "author": "Jacqueline Alemany, Isaac Stanley-Becker, Amy Gardner, Carol D. Leonnig",
+      "title": "Cassidy Hutchinson claims Trump figures sought to influence her testimony - The Washington Post",
+      "description": "The former White House aide’s allegations come in transcripts released by the House Jan. 6 committee as it prepares to end its work.",
+      "url": "https://www.washingtonpost.com/national-security/2022/12/22/cassidy-hutchinson-jan-6-transcript/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/SNBIATKY5JGT3NIL2B6XCZF66Q.jpg&w=1440",
+      "publishedAt": "2022-12-23T01:55:00Z",
+      "content": "Former White House aide Cassidy Hutchinson testified to the House select committee investigating the Jan. 6, 2021, attack on the U.S. Capitol that she was advised by her first lawyer to deliberately … [+11950 chars]"
+    },
+    {
+      "source": { "id": null, "name": "The Guardian" },
+      "author": "Guardian staff reporter",
+      "title": "Taliban minister defends closing universities to women as global backlash grows - The Guardian",
+      "description": "Neda Mohammad Nadeem says ban was necessary to prevent mixing of genders as rare protests break out",
+      "url": "https://www.theguardian.com/world/2022/dec/23/taliban-minister-defends-closing-universities-to-women-as-global-backlash-grows",
+      "urlToImage": "https://i.guim.co.uk/img/media/cc38703065c90a3f34c3b56113d4d0289551d6b9/120_0_1800_1080/master/1800.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9d48de18b999e21bcb360c79753fe4a7",
+      "publishedAt": "2022-12-23T01:50:00Z",
+      "content": "The minister of higher education in Afghanistans Taliban government has defended his decision to ban women from universities a decree that triggered a global backlash and protests inside the country.… [+4159 chars]"
+    },
+    {
+      "source": { "id": "associated-press", "name": "Associated Press" },
+      "author": "Jacques Billeaud",
+      "title": "Arizona lawyers: Kari Lake election loss lawsuit lacks merit - The Associated Press - en Español",
+      "description": "PHOENIX (AP) — Republican Kari Lake didn’t offer evidence to back her claims of widespread, intentional misconduct on Election Day at her two-day trial challenging her loss to Democrat Katie Hobbs  in Arizona governor’s race, lawyers for the state said Thursd…",
+      "url": "https://apnews.com/article/2022-midterm-elections-politics-arizona-katie-hobbs-d5d05d7359698db2c166909467d719f8",
+      "urlToImage": "https://storage.googleapis.com/afs-prod/media/785054e81fdd404981bef4063b3b7e5b/3000.webp",
+      "publishedAt": "2022-12-23T01:26:44Z",
+      "content": "PHOENIX (AP) Republican Kari Lake didnt offer evidence to back her claims of widespread, intentional misconduct on Election Day at her two-day trial challenging her loss to Democrat Katie Hobbs in Ar… [+5064 chars]"
+    },
+    {
+      "source": { "id": "reuters", "name": "Reuters" },
+      "author": null,
+      "title": "Airlines scrap 4400 U.S. flights as winter storm disrupts holiday travel - Reuters",
+      "description": "Over 4,400 flights have been canceled over a two-day period as a <a href=\"/world/us/sprawling-us-storm-threatens-holiday-travel-bomb-cyclone-looms-2022-12-21/\">powerful winter storm</a> hits the United States, coinciding with the start of a holiday season tha…",
+      "url": "https://www.reuters.com/business/aerospace-defense/airlines-scrap-nearly-2000-us-flights-winter-storm-disrupts-holiday-travel-2022-12-22/",
+      "urlToImage": "https://www.reuters.com/resizer/4F7pGby5xuVw__i6HKSA43k9us8=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/H47BQPWYZBP7BIL7ZBEZG7DOX4.jpg",
+      "publishedAt": "2022-12-23T00:38:00Z",
+      "content": "WASHINGTON, Dec 22 (Reuters) - Over 4,400 flights have been canceled over a two-day period as a powerful winter storm hits the United States, coinciding with the start of a holiday season that some p… [+2638 chars]"
+    }
+  ]
+}

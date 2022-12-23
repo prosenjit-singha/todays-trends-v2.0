@@ -11,12 +11,24 @@ import Article from "./Article";
 import ImageThumb from "../../../../components/ImageThumb";
 import { useState } from "react";
 import { SlCalender } from "react-icons/sl";
+import { Link } from "react-router-dom";
+import useFetchNews from "../../../../hooks/useFetchNews";
 
 function Articles() {
   const [loaded, setLoaded] = useState(false);
+  const { data, isLoading } = useFetchNews({
+    param: "everything",
+    q: "bitcoin",
+    pageSize: 12,
+  });
+  console.info(data);
   return (
     <Container>
-      <FirstArticle>
+      <FirstArticle component={Link} to="" className="custom-focus">
+        <Image
+          onLoad={() => setLoaded(true)}
+          src="https://source.unsplash.com/random/300x300"
+        />
         {!loaded && (
           <ImageThumb
             style={{
@@ -26,10 +38,6 @@ function Articles() {
             }}
           />
         )}
-        <Image
-          onLoad={() => setLoaded(true)}
-          src="https://source.unsplash.com/random/300x300"
-        />
         <Content>
           <Chip
             color="primary"
@@ -45,7 +53,7 @@ function Articles() {
             direction="row"
             alignItems="center"
             spacing={1}
-            color="text.secondary"
+            color="rgba(255,255,255,0.85)"
           >
             <SlCalender />
             <Typography>12.5.2022</Typography>
@@ -72,22 +80,6 @@ const Container = styled("section")(({ theme }) => ({
   },
 }));
 
-const FirstArticle = styled(Box)`
-  position: relative;
-  grid-column: 1/1;
-  grid-row: 1/3;
-  position: relative;
-  border: 1px solid ${({ theme }) => theme.palette.divider};
-  background-color: ${({ theme }) =>
-    lighten(theme.palette.background.paper, 0.035)};
-
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Image = styled("img")`
   position: absolute;
   top: 0;
@@ -96,6 +88,34 @@ const Image = styled("img")`
   width: 100%;
   object-fit: cover;
   object-position: center;
+  z-index: -2;
+  transform: scale(1);
+  transition: transform 300ms cubic-bezier(0.52, 0.03, 0.25, 1.08);
+`;
+
+const FirstArticle = styled(Box)<{ to?: string }>`
+  position: relative;
+  grid-column: 1/1;
+  grid-row: 1/3;
+  position: relative;
+  background-color: ${({ theme }) =>
+    lighten(theme.palette.background.paper, 0.035)};
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+  transition: outline 200ms ease-out;
+  :hover {
+    outline: 1px solid ${({ theme }) => theme.palette.divider};
+  }
+  &:hover > img {
+    transform: scale(1.1);
+  }
 `;
 
 const Content = styled(Box)`

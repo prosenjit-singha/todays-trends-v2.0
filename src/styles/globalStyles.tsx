@@ -42,7 +42,7 @@ export const globalStyles = (theme: Theme) => css`
   }
   .custom-focus {
     position: relative;
-    outline: none;
+    outline: 1px solid transparent;
     z-index: 5;
     ::before {
       position: absolute;

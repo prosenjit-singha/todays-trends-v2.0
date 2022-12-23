@@ -1,22 +1,21 @@
-import { styled, Stack, Typography, Chip } from "@mui/material";
+import {
+  styled,
+  Stack,
+  Typography,
+  Chip,
+  LinkProps,
+  lighten,
+} from "@mui/material";
 import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import React from "react";
 
 function Article() {
   return (
-    <Stack
-      className="custom-focus"
-      direction="row"
-      spacing={2}
-      component={Link}
-      to=""
-      sx={{
-        textDecoration: "none",
-        color: "initial",
-        zIndex: 2,
-      }}
-    >
-      <Image src="https://source.unsplash.com/random/300x300" />
+    <Container as={Link} to="/news" className="custom-focus">
+      <ImageContainer>
+        <Image src="https://source.unsplash.com/random/300x300" />
+      </ImageContainer>
       <Stack sx={{ py: 1, width: "100%" }}>
         <Chip
           style={{ borderRadius: 0 }}
@@ -40,19 +39,26 @@ function Article() {
           <Typography>12/05/2022</Typography>
         </Stack>
       </Stack>
-    </Stack>
+    </Container>
   );
 }
 
 export default Article;
 
-const Image = styled("img")`
-  width: clamp(150px, 40%, 250px);
+const ImageContainer = styled("figure")`
+  width: clamp(150px, 100%, 280px);
   max-height: 180px;
   aspect-ratio: 16/9;
+  z-index: -2;
+  margin: 0;
+  overflow: hidden;
+`;
+const Image = styled("img")`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -2;
+  transition: transform 500ms cubic-bezier(0.52, 0.03, 0.25, 1.08);
 `;
 
 const Title = styled(Typography)`
@@ -65,6 +71,20 @@ const Title = styled(Typography)`
   text-overflow: ellipsis;
 `;
 
-// MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1mvunn0-MuiButtonBase-root-MuiIconButton-root
-
-// Mui-focusVisible aria-describeedby=":r1:"
+const Container = styled(Stack)<{ to?: string }>`
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  color: initial;
+  z-index: 2;
+  transition: background-color 200ms ease-out, outline 200ms ease-out;
+  :hover {
+    outline: 1px solid ${({ theme }) => theme.palette.divider};
+    background-color: ${({ theme }) =>
+      lighten(theme.palette.background.paper, 0.035)};
+  }
+  :hover img {
+    transform: scale(1.1);
+  }
+`;
