@@ -26,6 +26,7 @@ export const commonStyles: ThemeOptions = {
         },
       },
     },
+    MuiSkeleton: {},
   },
   typography: {
     fontFamily: '"Poppins", "Roboto","Helvetica","Arial",sans-serif',

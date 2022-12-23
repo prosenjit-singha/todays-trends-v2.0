@@ -13,6 +13,7 @@ import { useState } from "react";
 import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import useFetchNews from "../../../../hooks/useFetchNews";
+import ArticleSkeleton from "./Article.skeleton";
 
 function Articles({ category }: { category: string }) {
   const [loaded, setLoaded] = useState(false);
@@ -64,6 +65,9 @@ function Articles({ category }: { category: string }) {
           </Stack>
         </Content>
       </FirstArticle>
+      {[1, 2, 3, 4].map((i) => (
+        <ArticleSkeleton key={i} delay={i} />
+      ))}
       {articles.map((article, i) => (
         <Article key={i} category={category} data={article} />
       ))}

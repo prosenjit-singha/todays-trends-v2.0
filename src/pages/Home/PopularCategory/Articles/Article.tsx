@@ -1,14 +1,14 @@
+import React from "react";
 import { styled, Stack, Typography, Chip, lighten } from "@mui/material";
 import { SlCalender } from "react-icons/sl";
-import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import ArticleType from "../../../../Types/Article.types";
 
 function Article({ category, data }: { category: string; data: ArticleType }) {
   return (
-    <Container as={Link} to="/news" className="custom-focus">
+    <Container as="a" href={data.url} target="_blank" className="custom-focus">
       <ImageContainer>
-        <Image src="https://source.unsplash.com/random/300x300" />
+        <Image src={data.urlToImage} alt="News Thumbnail" />
       </ImageContainer>
       <Stack sx={{ py: 1, width: "100%" }}>
         <Chip
@@ -19,7 +19,8 @@ function Article({ category, data }: { category: string; data: ArticleType }) {
           variant="outlined"
           sx={{ width: "fit-content", textTransform: "capitalize" }}
         />
-        <Title variant="h6">{data?.title}</Title>
+        <Title variant="h6">{data.title}</Title>
+
         <Stack
           color="text.secondary"
           direction="row"
@@ -43,6 +44,8 @@ const ImageContainer = styled("figure")`
   z-index: -2;
   margin: 0;
   overflow: hidden;
+  background-color: ${({ theme }) =>
+    lighten(theme.palette.background.paper, 0.035)};
 `;
 const Image = styled("img")`
   width: 100%;
@@ -62,7 +65,7 @@ const Title = styled(Typography)`
   text-overflow: ellipsis;
 `;
 
-const Container = styled(Stack)<{ to?: string }>`
+const Container = styled(Stack)<{ href: string; target: string }>`
   cursor: pointer;
   display: flex;
   gap: 1rem;
