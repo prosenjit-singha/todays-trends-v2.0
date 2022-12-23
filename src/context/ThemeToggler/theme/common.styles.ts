@@ -10,6 +10,11 @@ export const commonStyles: ThemeOptions = {
         disableRipple: false,
       },
     },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
     MuiTooltip: {
       defaultProps: {
         arrow: true,
