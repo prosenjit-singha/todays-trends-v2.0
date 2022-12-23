@@ -4,7 +4,7 @@ import HeroSection from "./HeroSection";
 import PopularCategory from "./PopularCategory";
 
 function Home() {
-  // useScrollToTop();
+  useScrollToTop();
   return (
     <Main>
       <HeroSection />

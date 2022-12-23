@@ -1,4 +1,4 @@
-import { Grid, Box, styled, Typography, Divider } from "@mui/material";
+import { Grid, styled, Typography, Divider } from "@mui/material";
 import LogoSection from "./LogoSection";
 import UsefulLinks from "./UsefulLinks";
 

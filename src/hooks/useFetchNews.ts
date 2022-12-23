@@ -28,6 +28,7 @@ const useFetchNews = ({
   if (category) url += `&category=${category}`;
   if (pageSize) url += `&pageSize=${pageSize}`;
   if (page) url += `&page=${page}`;
+  // eslint-disable-next-line
   if (sortBy) url += `&url=${sortBy}`;
 
   return useQuery({

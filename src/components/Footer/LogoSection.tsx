@@ -1,5 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
-import React from "react";
+import { Divider, Typography } from "@mui/material";
 import Logo from "../Logo";
 import FollowIUs from "./FollowIUs";
 
