@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, styled } from "@mui/material";
+import { Box, Stack, Typography, styled, Divider } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import navlinks from "../../data/navlinks";
 
@@ -34,6 +34,7 @@ function UsefulLinks() {
   const isActive = (link: string) => (pathname === link ? "active" : undefined);
   return (
     <Box component="nav">
+      <Divider sx={{ display: ["block", "none"] }} />
       <Typography variant="h5" mb={1}>
         Useful Links
       </Typography>

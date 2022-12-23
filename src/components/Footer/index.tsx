@@ -1,4 +1,4 @@
-import { Grid, Box, styled, Typography } from "@mui/material";
+import { Grid, Box, styled, Typography, Divider } from "@mui/material";
 import LogoSection from "./LogoSection";
 import UsefulLinks from "./UsefulLinks";
 
@@ -26,6 +26,7 @@ function Footer() {
         <UsefulLinks />
       </Grid>
       <Grid item xs={12}>
+        <Divider />
         <Typography fontSize="small" textAlign="center">
           Copyright © Today's Trends 2022.{" "}
         </Typography>
