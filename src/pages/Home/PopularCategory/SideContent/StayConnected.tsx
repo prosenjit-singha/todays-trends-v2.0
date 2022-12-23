@@ -14,7 +14,7 @@ import socialLinks from "../../../../data/socialLinks";
 
 function StayConnected() {
   return (
-    <Box mt={2}>
+    <Box mt={5}>
       <Typography variant="h5">Stay Connected</Typography>
       <List>
         {socialLinks.map(({ id, Icon, followers, bg }) => (

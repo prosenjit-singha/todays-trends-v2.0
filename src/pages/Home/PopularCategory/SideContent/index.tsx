@@ -6,7 +6,10 @@ import StayConnected from "./StayConnected";
 function SideContent() {
   const isMd = useBreakpoint(900);
   return (
-    <Stack direction={isMd ? "column" : "row"}>
+    <Stack
+      direction={isMd ? "column" : "row"}
+      sx={{ position: "sticky", top: "74px" }}
+    >
       <Divider
         flexItem
         orientation={isMd ? "horizontal" : "vertical"}
