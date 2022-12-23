@@ -41,7 +41,7 @@ function Navlinks() {
         {navlinks.map(({ to, text }, i) => (
           <li key={i}>
             {" "}
-            <NavLink active={isActive(to)} to={to}>
+            <NavLink className="custom-focus" active={isActive(to)} to={to}>
               {text}
             </NavLink>
           </li>

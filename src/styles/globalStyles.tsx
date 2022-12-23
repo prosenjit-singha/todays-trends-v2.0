@@ -1,5 +1,14 @@
 import { css, Theme, keyframes } from "@mui/material";
 
+const enterAnimation = keyframes`
+  0%{
+    transform: scale(0,0);
+  }
+  100%{
+    transform: scale(0.7,1);
+  }
+`;
+
 const focusKeyframes = keyframes`
   0%, 100%{
     transform: scaleX(0.7);
@@ -35,13 +44,12 @@ export const globalStyles = (theme: Theme) => css`
       height: 100%;
       border-radius: 10em;
       background-color: ${theme.palette.primary.main + "32"};
-      transform: scale(0);
+      transform: scale(0, 0);
       z-index: -1;
-      /* display: none; */
     }
     &:focus-visible::before {
-      display: block;
-      animation: ${focusKeyframes} 2.5s ease infinite;
+      animation: ${enterAnimation} 250ms ease forwards,
+        ${focusKeyframes} 2.5s ease infinite 250ms;
     }
   }
 `;

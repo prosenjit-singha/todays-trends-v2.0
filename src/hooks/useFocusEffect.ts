@@ -2,11 +2,15 @@ import { useEffect } from "react";
 
 function useFocusEffect() {
   useEffect(() => {
-    function handleFocus() {
-      console.info(document.activeElement);
+    function handleFocus({ key }: KeyboardEvent) {
+      if (key === "Tab") {
+        if (document.activeElement?.getAttribute("data-focus-effect")) {
+          document.activeElement.classList.add("custom-focus");
+        }
+      }
     }
-    document.addEventListener("focus", handleFocus);
-    return () => document.removeEventListener("focus", handleFocus);
+    window.addEventListener("keyup", handleFocus);
+    return () => window.removeEventListener("keyup", handleFocus);
   }, []);
   return null;
 }

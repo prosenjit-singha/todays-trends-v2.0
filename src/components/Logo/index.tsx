@@ -14,7 +14,7 @@ type PropsType = Omit<React.ComponentProps<typeof Container>, "to">;
 
 function Logo(props: PropsType) {
   return (
-    <Container {...props} to="/" color="primary">
+    <Container className="custom-focus" {...props} to="/" color="primary">
       Today's Trends
     </Container>
   );
