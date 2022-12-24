@@ -4,7 +4,7 @@ import { SlCalender } from "react-icons/sl";
 
 function Article() {
   return (
-    <Container as="a" item xs={12}>
+    <Container as="a" xs={12}>
       <ImageContainer>
         <Image
           src="https://source.unsplash.com/random/300×300"
@@ -17,15 +17,15 @@ function Article() {
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat,
           adipisci?
         </Title>
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} color="text.secondary">
           {/* Author */}
           <Stack direction="row" spacing={1} alignItems="center">
-            <BsPen /> <Typography color="text.secondary">PJ</Typography>
+            <BsPen /> <Typography>PJ</Typography>
           </Stack>
           {/* Date */}
           <Stack direction="row" spacing={1} alignItems="center">
             <SlCalender />
-            29 Dec, 2022
+            <Typography>29 Dec, 2022</Typography>
           </Stack>
         </Stack>
       </Content>
@@ -36,7 +36,7 @@ function Article() {
 export default Article;
 
 export const ImageContainer = styled("figure")`
-  width: 50%;
+  width: clamp(100px, 100%, 320px);
   height: 100%;
   max-height: 180px;
   overflow: hidden;
@@ -51,7 +51,7 @@ const Image = styled("img")`
 `;
 
 export const Content = styled(Box)`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
