@@ -1,25 +1,28 @@
 import {
-  Box,
   Paper,
   styled,
   lighten,
   darken,
   Typography,
-  TextField,
   Button,
 } from "@mui/material";
 
 function Subscribe() {
   return (
-    <Container elevation={0}>
+    <Container as="form" elevation={0}>
       <Typography variant="h6" textAlign="center">
         Subscribe To Our Newsletter
       </Typography>
-      <Typography textAlign="center" fontSize={14} color="text.secondary">
+      <Typography
+        my={1}
+        textAlign="center"
+        fontSize={14}
+        color="text.secondary"
+      >
         No spam, notification only about latest news & updates.
       </Typography>
-      <Input placeholder="Email" />
-      <Button variant="contained" fullWidth>
+      <Input placeholder="Email" type="email" required />
+      <Button sx={{ mt: 1 }} type="submit" variant="contained" fullWidth>
         Subscribe
       </Button>
     </Container>
