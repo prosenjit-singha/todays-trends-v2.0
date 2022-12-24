@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { styled, Box } from "@mui/material";
 import Article from "./Article";
 import useFetchNews from "../../../../hooks/useFetchNews";
 import ArticleSkeleton from "./Article.skeleton";
@@ -33,13 +33,19 @@ function Articles({ category }: { category: string }) {
 
 export default Articles;
 
-const Container = styled("section")(({ theme }) => ({
-  marginTop: 16,
-  display: "grid",
-  gridTemplateColumns: "1fr",
-  gridAutoRows: "1fr",
-  gap: 16,
-  [theme.breakpoints.up("sm")]: {
-    gridTemplateColumns: "1fr 1fr",
-  },
-}));
+const Container = styled(Box)`
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    grid-template-columns: 1fr 1fr;
+  }
+  a {
+    transition: filter 500ms ease-out;
+  }
+  :hover a:not(:hover) {
+    filter: grayscale(0.75);
+  }
+`;

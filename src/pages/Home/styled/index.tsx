@@ -8,7 +8,7 @@ export const Section = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const Main = ({ children }: { children: React.ReactNode }) => (
-  <Grid item xs={12} md={9} lg={10}>
+  <Grid item component="section" xs={12} md={9} lg={10}>
     {children}
   </Grid>
 );
