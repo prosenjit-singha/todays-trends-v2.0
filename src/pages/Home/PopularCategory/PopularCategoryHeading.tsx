@@ -4,6 +4,7 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
+import { useBreakpoint } from "react-use-size";
 
 type PropsType = {
   category: string;
@@ -11,12 +12,14 @@ type PropsType = {
 };
 
 function PopularCategoryHeading({ category, onChange }: PropsType) {
+  const isSmall = useBreakpoint(420);
   return (
     <Stack direction="row" flexWrap="wrap">
       <Typography variant="h4" mr="auto" sx={{ mb: { xs: 2, md: 0 } }}>
         Most Popular Category
       </Typography>
       <ToggleButtonGroup
+        orientation={isSmall ? "vertical" : "horizontal"}
         sx={{ width: { xs: "100%", sm: "auto" } }}
         color="primary"
         value={category}

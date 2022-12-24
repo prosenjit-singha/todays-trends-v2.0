@@ -1,11 +1,13 @@
 import { Box, Button, styled, Typography } from "@mui/material";
-import bg from "../../../../assets/images/hero/hero-5.jpg";
+import bg from "../../../assets/images/hero/hero-5.jpg";
 
 const Image = styled("img")`
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(1.01);
+  transition: transform 300ms ${({ theme }) => theme.transitions.easing.easeOut};
 `;
 
 const Content = styled("div")`
@@ -25,7 +27,13 @@ const Content = styled("div")`
 function Alan() {
   return (
     <Box
-      sx={{ position: "relative" }}
+      sx={{
+        position: "relative",
+        overflow: "hidden",
+        ":hover > img": {
+          transform: "scale(1.1)",
+        },
+      }}
       component="figure"
       height={300}
       width="100%"

@@ -8,7 +8,7 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
-import socialLinks from "../../../../data/socialLinks";
+import socialLinks from "../../../data/socialLinks";
 
 function StayConnected() {
   return (
