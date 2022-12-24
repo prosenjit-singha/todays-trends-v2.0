@@ -27,7 +27,7 @@ export const SideContent = ({ children }: { children: React.ReactNode }) => {
       <Divider
         flexItem
         orientation={isMd ? "horizontal" : "vertical"}
-        sx={{ mx: [0, 0, 1], my: 1 }}
+        sx={{ mx: [0, 0, 1], my: [2, 2, 0] }}
       />
       <Box width="100%">
         <Box sx={{ flexBasis: "100%", position: "sticky", top: "70px" }}>

@@ -1,14 +1,18 @@
 import { Grid, styled } from "@mui/material";
+import useFetchNews from "../../../../hooks/useFetchNews";
 import Article from "./Article";
 import ArticleSkeleton from "./Article.skeleton";
 
 function Articles() {
+  const { data: articles = [], isLoading } = useFetchNews({});
   return (
     <Container container>
-      {[1, 2, 3].map((i) => (
-        <ArticleSkeleton key={i} />
-      ))}
-      <Article />
+      {isLoading && [1, 2, 3].map((i) => <ArticleSkeleton key={i} />)}
+      {!isLoading &&
+        articles.length &&
+        articles
+          .slice(0, 3)
+          .map((article, i) => <Article key={i} data={article} />)}
     </Container>
   );
 }

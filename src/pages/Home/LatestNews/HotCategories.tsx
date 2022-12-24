@@ -18,6 +18,7 @@ function HotCategories() {
         {hotCategories.map((category) => (
           <ListItem disablePadding sx={{ my: 1 }}>
             <ItemButton
+              className="custom-focus"
               as={Link}
               to={category.path}
               bgImg={category.bgImageURL}
