@@ -3,7 +3,7 @@ import { Container, Content, ImageContainer } from "./Article";
 
 function ArticleSkeleton() {
   return (
-    <Container>
+    <Container sx={{ pointerEvents: "none" }}>
       <ImageContainer>
         <Skeleton height="100%" width="100%" />
       </ImageContainer>

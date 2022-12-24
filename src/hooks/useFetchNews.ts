@@ -36,7 +36,10 @@ const useFetchNews = ({
     queryFn: (): Promise<ArticleType[]> =>
       axios
         .get("news.json")
-        .then(({ data }) => data.articles)
+        .then(async ({ data }) => {
+          await new Promise((resolve) => setTimeout(resolve, 5000));
+          return data.articles;
+        })
         .catch((err) => console.error(err)),
     refetchOnWindowFocus: false,
     refetchOnMount: false,

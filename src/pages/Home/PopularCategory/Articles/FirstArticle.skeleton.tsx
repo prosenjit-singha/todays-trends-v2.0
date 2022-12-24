@@ -43,12 +43,6 @@ const Container = styled(Box)`
   color: rgba(255, 255, 255, 0.95);
   overflow: hidden;
   transition: outline 200ms ease-out;
-  :hover {
-    outline: 1px solid ${({ theme }) => theme.palette.divider};
-  }
-  &:hover > img {
-    transform: scale(1.1);
-  }
 `;
 
 const Content = styled(Box)`
