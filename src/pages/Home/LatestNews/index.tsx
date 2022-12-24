@@ -2,6 +2,8 @@ import React from "react";
 import { Typography, Divider } from "@mui/material";
 import { SideContent, Main, Section } from "../styled";
 import Articles from "./Articles";
+import Subscribe from "./Subscribe";
+import HotCategories from "./HotCategories";
 
 function LatestNews() {
   return (
@@ -11,7 +13,10 @@ function LatestNews() {
         <Divider sx={{ my: 1 }} />
         <Articles />
       </Main>
-      <SideContent>World</SideContent>
+      <SideContent>
+        <Subscribe />
+        <HotCategories />
+      </SideContent>
     </Section>
   );
 }
