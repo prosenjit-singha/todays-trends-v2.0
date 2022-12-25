@@ -1,6 +1,7 @@
 import { Typography, Divider } from "@mui/material";
 import { Main, Section, SideContent } from "../styled";
 import Articles from "./Articles";
+import PopularNews from "./PopularNews";
 
 function PopularSources() {
   return (
@@ -10,7 +11,9 @@ function PopularSources() {
         <Divider sx={{ my: 1 }} />
         <Articles />
       </Main>
-      <SideContent>Side</SideContent>
+      <SideContent>
+        <PopularNews />
+      </SideContent>
     </Section>
   );
 }
