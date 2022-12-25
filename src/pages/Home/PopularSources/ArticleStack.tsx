@@ -3,7 +3,7 @@ import Article from "./Article";
 
 function ArticleStack() {
   return (
-    <Stack>
+    <Stack width="100%">
       <Header>
         <HeaderImage src="https://source.unsplash.com/random/" />
       </Header>

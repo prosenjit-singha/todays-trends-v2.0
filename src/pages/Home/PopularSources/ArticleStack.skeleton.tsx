@@ -2,7 +2,7 @@ import { Stack, Skeleton, Divider } from "@mui/material";
 
 function ArticleStackSkeleton() {
   return (
-    <Stack>
+    <Stack width="100%">
       <Skeleton
         sx={{ width: "100%", aspectRatio: "16 / 9", height: "135px", mb: 1 }}
       />
