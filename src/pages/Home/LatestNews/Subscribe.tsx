@@ -40,12 +40,16 @@ const Container = styled(Paper)`
 `;
 
 const Input = styled("input")`
+  /* color: ${(p) => p.theme.palette.primary.main}; */
   margin-block: 0.5rem;
-  border: 1px solid gray;
+  border: 1px solid ${(p) => p.theme.palette.action.focus};
   font-size: 1.1rem;
   width: 100%;
   border-radius: 0;
   padding: 8px 4px;
+  :hover {
+    border: 1px solid ${(p) => p.theme.palette.action.active};
+  }
   :focus-visible {
     outline: none;
     border: 1px solid ${(p) => p.theme.palette.primary.main};

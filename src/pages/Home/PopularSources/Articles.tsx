@@ -1,5 +1,6 @@
 import { Grid, styled } from "@mui/material";
 import ArticleStack from "./ArticleStack";
+import ArticleStackSkeleton from "./ArticleStack.skeleton";
 function Articles() {
   return (
     <Grid container spacing={2}>
@@ -10,7 +11,8 @@ function Articles() {
         <ArticleStack />
       </Grid>
       <Grid item xs={12} lg={4}>
-        <ArticleStack />
+        {/* <ArticleStack /> */}
+        <ArticleStackSkeleton />
       </Grid>
     </Grid>
   );

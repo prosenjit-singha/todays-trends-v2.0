@@ -79,7 +79,7 @@ const Image = styled("img")`
   object-fit: cover;
   object-position: center;
   transform: scale(1.01);
-  transition: transform 300ms ease-out;
+  transition: transform 500ms cubic-bezier(0.52, 0.03, 0.25, 1.08);
 `;
 
 export const Content = styled(Box)`

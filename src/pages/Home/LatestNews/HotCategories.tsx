@@ -14,14 +14,18 @@ function HotCategories() {
       <Typography variant="h5">Hot Categories</Typography>
       <List>
         {hotCategories.map((category, i) => (
-          <ListItem key={i} disablePadding sx={{ my: 1 }}>
+          <ListItem
+            key={i}
+            disablePadding
+            sx={{ my: 1, background: `url(${category.bgImageURL})` }}
+          >
             <ItemButton
               className="custom-focus"
               as={Link}
               to={category.path}
               bg_image={category.bgImageURL}
             >
-              <ListItemText sx={{ color: "rgba(255,255,255,0.87)" }}>
+              <ListItemText sx={{ color: "rgba(255,255,255,0.95)" }}>
                 {category.name}
               </ListItemText>
             </ItemButton>
@@ -38,14 +42,16 @@ const ItemButton = styled(ListItem)<{ bg_image: string; to: string }>`
   width: 100%;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)),
-    url(${({ bg_image }) => bg_image});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transition: filter 300ms ease-out;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 25%,
+    rgba(0, 0, 0, 0)
+  );
+  background-size: 200%;
+  background-position: 50%;
+  transition: background-position 300ms ease-out;
   :hover {
-    filter: brightness(1.35);
+    background-position: left;
   }
 `;
 
