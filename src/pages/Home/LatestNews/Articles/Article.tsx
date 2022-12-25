@@ -42,8 +42,8 @@ function Article({ data }: PropsType) {
             <Typography
               sx={{
                 display: "-webkit-box",
-                "-webkit-line-clamp": "1",
-                "-webkit-box-orient": "vertical",
+                WebkitLineClamp: "1",
+                WebkitBoxOrient: "vertical",
                 textOverflow: "ellipsis",
                 overflow: "hidden",
                 textTransform: "capitalize",

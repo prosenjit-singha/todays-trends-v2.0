@@ -50,7 +50,7 @@ const ItemButton = styled(ListItem)<{ bg_image: string; to: string }>`
   background-size: 200%;
   background-position: 50%;
   transition: background-position 300ms ease-out;
-  :hover {
+  &:hover {
     background-position: left;
   }
 `;

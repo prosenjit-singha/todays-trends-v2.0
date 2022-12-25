@@ -5,6 +5,8 @@ import {
   darken,
   Typography,
   Button,
+  FormControl,
+  OutlinedInput,
 } from "@mui/material";
 
 function Subscribe() {
@@ -21,7 +23,9 @@ function Subscribe() {
       >
         No spam, notification only about latest news & updates.
       </Typography>
-      <Input placeholder="Email" type="email" required />
+      <FormControl size="small">
+        <OutlinedInput type="email" placeholder="Email" required />
+      </FormControl>
       <Button sx={{ mt: 1 }} type="submit" variant="contained" fullWidth>
         Subscribe
       </Button>
@@ -37,21 +41,4 @@ const Container = styled(Paper)`
     theme.palette.mode === "dark"
       ? lighten(theme.palette.background.paper, 0.075)
       : darken(theme.palette.background.paper, 0.075)};
-`;
-
-const Input = styled("input")`
-  /* color: ${(p) => p.theme.palette.primary.main}; */
-  margin-block: 0.5rem;
-  border: 1px solid ${(p) => p.theme.palette.action.focus};
-  font-size: 1.1rem;
-  width: 100%;
-  border-radius: 0;
-  padding: 8px 4px;
-  :hover {
-    border: 1px solid ${(p) => p.theme.palette.action.active};
-  }
-  :focus-visible {
-    outline: none;
-    border: 1px solid ${(p) => p.theme.palette.primary.main};
-  }
 `;

@@ -9,12 +9,17 @@ function PopularNews() {
         Popular News
       </Typography>
       <Stack>
-        <ItemSkeleton />
+        {/* {[1, 2, 3, 4, 5].map((i) => (
+          <Box key={i}>
+            <ItemSkeleton />
+            {i<4 && <Divider sx={{ my: 1 }} />}
+          </Box>
+        ))} */}
         {[1, 2, 3, 4].map((i) => (
-          <>
-            <Item key={i} />
-            <Divider sx={{ my: 1 }} />
-          </>
+          <Box key={i}>
+            <Item />
+            {i < 4 && <Divider sx={{ my: 1 }} />}
+          </Box>
         ))}
       </Stack>
     </Box>
