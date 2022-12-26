@@ -53,7 +53,9 @@ function NewsCard({ data }: PropsType) {
         </Text>
 
         <CardActions sx={{ px: 0, pb: 0 }}>
-          <Button size="small">Read More </Button>
+          <Button href={data.url} target="_blank" size="small">
+            Read More{" "}
+          </Button>
         </CardActions>
       </CardContent>
     </Card>
