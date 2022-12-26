@@ -1,12 +1,4 @@
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  lighten,
-  Tooltip,
-  InputBase,
-  Box,
-} from "@mui/material";
+import { AppBar, Toolbar, IconButton, lighten, Tooltip } from "@mui/material";
 import Navlinks from "./Navlinks";
 import Logo from "../Logo";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -15,7 +7,6 @@ import { useThemeToggler } from "../../context/ThemeToggler";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import MenuDrawer from "./MenuDrawer";
-import { BiSearch } from "react-icons/bi";
 
 function Navbar() {
   const { theme, toggleTheme } = useThemeToggler();
@@ -38,17 +29,7 @@ function Navbar() {
             marginRight: "auto",
           }}
         />
-        {/* Search Box */}
-        <Box sx={{ display: ["none", "block", "none"] }}>
-          <InputBase
-            sx={{ mx: 2, flex: 1, maxWidth: 250 }}
-            placeholder="Search News"
-            inputProps={{ "aria-label": "search google maps" }}
-          />
-          <IconButton>
-            <BiSearch />
-          </IconButton>
-        </Box>
+
         {/* Nav Links */}
         <Navlinks />
         {/* Theme Toggler */}

@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 
 type PropsType<T> = {
+  isLoading: boolean;
   label: string;
   defalutValue: string;
   data: T;
@@ -18,6 +19,7 @@ function Dropdown<T extends { [key: string]: string }>({
   data,
   defalutValue,
   label,
+  isLoading,
 }: PropsType<T>) {
   const [value, setValue] = useState(defalutValue);
   const handleChange = (event: SelectChangeEvent) => {
@@ -25,7 +27,12 @@ function Dropdown<T extends { [key: string]: string }>({
   };
 
   return (
-    <FormControl sx={{ minWidth: 172 }} size="small" fullWidth>
+    <FormControl
+      disabled={isLoading}
+      sx={{ minWidth: 172 }}
+      size="small"
+      fullWidth
+    >
       <InputLabel>{label}</InputLabel>
       <Select
         labelId="demo-select-small"

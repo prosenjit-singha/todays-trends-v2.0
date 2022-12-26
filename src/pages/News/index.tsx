@@ -9,8 +9,8 @@ function News() {
   const { data = [], isLoading } = useFetchNews({});
   return (
     <Main>
-      <Header />
-      <NewsCards articles={data} />
+      <Header isLoading={isLoading} />
+      <NewsCards isLoading={isLoading} articles={data} />
     </Main>
   );
 }

@@ -19,7 +19,7 @@ type PropsType = {
 
 function NewsCard({ data }: PropsType) {
   return (
-    <Card>
+    <Card sx={{ height: "100%" }}>
       <CardMedia
         component="img"
         alt="News Thumbnail"

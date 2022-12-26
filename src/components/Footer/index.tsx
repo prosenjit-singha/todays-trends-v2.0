@@ -4,6 +4,7 @@ import UsefulLinks from "./UsefulLinks";
 
 const Container = styled(Grid)(({ theme }) => ({
   minHeight: "10vh",
+  marginTop: "24px",
   backgroundColor: theme.palette.background.paper,
   borderTop: `1px solid ${theme.palette.divider}`,
   padding: 24,
