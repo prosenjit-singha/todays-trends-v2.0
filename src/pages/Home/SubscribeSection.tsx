@@ -27,10 +27,20 @@ function SubscribeSection() {
             : darken(palette.background.paper, 0.1),
       })}
     >
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} sm={4} md={5}>
         <Image src={sub} alt="Subscribe" />
       </Grid>
-      <Grid item xs={12} md={8}>
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={7}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Typography
           fontSize="clamp(1.5rem, 4vw, 2.5rem)"
           textTransform="capitalize"
@@ -39,11 +49,17 @@ function SubscribeSection() {
         >
           Get the best blog stories into your inbox!
         </Typography>
-        <Stack direction="row" spacing={2} my={2}>
+        <Stack component="form" direction="row" spacing={2} my={2}>
           <FormControl size="medium" fullWidth sx={{ maxWidth: "300px" }}>
-            <OutlinedInput placeholder="Enter your email" />
+            <OutlinedInput
+              placeholder="Enter your email"
+              type="email"
+              required
+            />
           </FormControl>
-          <Button variant="contained">Subscribe</Button>
+          <Button variant="contained" size="large">
+            Subscribe
+          </Button>
         </Stack>
       </Grid>
     </Grid>

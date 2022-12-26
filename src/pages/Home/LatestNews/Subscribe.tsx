@@ -23,7 +23,7 @@ function Subscribe() {
       >
         No spam, notification only about latest news & updates.
       </Typography>
-      <FormControl size="small">
+      <FormControl size="small" fullWidth>
         <OutlinedInput type="email" placeholder="Email" required />
       </FormControl>
       <Button sx={{ mt: 1 }} type="submit" variant="contained" fullWidth>

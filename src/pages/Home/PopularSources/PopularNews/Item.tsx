@@ -11,7 +11,9 @@ import { SlCalender } from "react-icons/sl";
 function Item() {
   return (
     <Stack direction="row" alignItems="center">
-      <ImageContainer></ImageContainer>
+      <ImageContainer>
+        <Image src="https://source.unsplash.com/random" />
+      </ImageContainer>
       <Divider flexItem orientation="vertical" sx={{ mx: 1 }} />
       <Stack width="calc(100% - 60px)">
         <Typography
