@@ -14,7 +14,7 @@ import categoryList from "../../../data/categoryList";
 
 function Header() {
   return (
-    <Paper elevation={3} sx={{ mt: "80px", mx: [2, 3], p: 2, mb: 3 }}>
+    <Paper elevation={3} sx={{ mt: 2, mx: [2, 3], p: 2, mb: 3 }}>
       <Grid
         container
         component={"form"}

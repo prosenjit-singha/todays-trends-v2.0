@@ -20,8 +20,6 @@ function Dropdown<T extends { [key: string]: string }>({
   label,
 }: PropsType<T>) {
   const [value, setValue] = useState(defalutValue);
-  const list = Object.entries(data);
-  console.info(list);
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value);
   };

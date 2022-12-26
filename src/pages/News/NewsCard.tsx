@@ -10,20 +10,25 @@ import {
 } from "@mui/material";
 import { SlCalender } from "react-icons/sl";
 import { BsNewspaper as NewsIcon } from "react-icons/bs";
+import ArticleType from "../../Types/Article.types";
+import { format } from "date-fns";
 
-function NewsCard() {
+type PropsType = {
+  data: ArticleType;
+};
+
+function NewsCard({ data }: PropsType) {
   return (
     <Card>
       <CardMedia
         component="img"
         alt="News Thumbnail"
         height={150}
-        image="https://source.unsplash.com/random"
+        image={data.urlToImage}
       />
       <CardContent>
         <Text variant="h5" gutterBottom>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {data.title}
         </Text>
         <Stack
           color="text.secondary"
@@ -32,7 +37,7 @@ function NewsCard() {
           alignItems="center"
         >
           <NewsIcon />
-          <Typography>Source</Typography>
+          <Typography>{data.source.name}</Typography>
         </Stack>
         <Stack
           color="text.secondary"
@@ -41,11 +46,10 @@ function NewsCard() {
           alignItems="center"
         >
           <SlCalender />
-          <Typography>Dec 29, 2022</Typography>
+          <Typography>{format(new Date(data.publishedAt), "PP")}</Typography>
         </Stack>
         <Text color="text.secondary" mt={2}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {data.description}
         </Text>
 
         <CardActions sx={{ px: 0, pb: 0 }}>

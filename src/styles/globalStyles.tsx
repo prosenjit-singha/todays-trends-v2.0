@@ -55,6 +55,10 @@ export const globalStyles = (theme: Theme) => css`
   body {
     overflow: overlay;
   }
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
   .swiper-pagination-bullet {
     background-color: ${theme.palette.primary.main};
   }
