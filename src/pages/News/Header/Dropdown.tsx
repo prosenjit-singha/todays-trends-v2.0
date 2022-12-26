@@ -8,29 +8,38 @@ import {
 } from "@mui/material";
 
 type PropsType<T> = {
-  label?: string;
-  defalutValue?: string;
+  label: string;
+  defalutValue: string;
   data: T;
   setValue?: () => void;
 };
 
-function Dropdown<T extends { [key: string]: string }>({ data }: PropsType<T>) {
-  const [age, setAge] = useState("");
+function Dropdown<T extends { [key: string]: string }>({
+  data,
+  defalutValue,
+  label,
+}: PropsType<T>) {
+  const [value, setValue] = useState(defalutValue);
   const list = Object.entries(data);
   console.info(list);
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setValue(event.target.value);
   };
 
   return (
-    <FormControl sx={{ minWidth: 120 }} size="small">
-      <InputLabel>Age</InputLabel>
+    <FormControl sx={{ minWidth: 172 }} size="small" fullWidth>
+      <InputLabel>{label}</InputLabel>
       <Select
         labelId="demo-select-small"
         id="demo-select-small"
-        value={age}
-        label="Age"
+        value={value}
+        label={label}
         onChange={handleChange}
+        MenuProps={{
+          sx: {
+            maxHeight: "clamp(300px, 80vh, 450px)",
+          },
+        }}
       >
         <MenuItem value="">
           <em>None</em>

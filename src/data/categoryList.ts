@@ -1,5 +1,4 @@
 const categoryList = {
-  All: "all",
   Business: "business",
   Entertainment: "entertainment",
   General: "general",
