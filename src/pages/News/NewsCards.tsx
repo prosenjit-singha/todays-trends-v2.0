@@ -26,6 +26,7 @@ function NewsCards({ articles, isLoading }: PropsType) {
         <Pagination
           variant="outlined"
           shape="rounded"
+          color="primary"
           sx={{ display: "fex", justifyContent: "center" }}
           count={10}
         />

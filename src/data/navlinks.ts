@@ -17,8 +17,8 @@ const navlinks = [
   },
   {
     Icon: ContactIcon,
-    to: "/contact-us",
-    text: "Contact Us",
+    to: "/command-list",
+    text: "Command List",
   },
   {
     Icon: InfoIcon,
