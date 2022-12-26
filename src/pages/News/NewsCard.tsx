@@ -48,7 +48,7 @@ function NewsCard({ data }: PropsType) {
           <SlCalender />
           <Typography>{format(new Date(data.publishedAt), "PP")}</Typography>
         </Stack>
-        <Text color="text.secondary" mt={2}>
+        <Text color="text.secondary" mt={1}>
           {data.description}
         </Text>
 
