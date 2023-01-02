@@ -19,14 +19,21 @@ type PropsType = {
 
 function NewsCard({ data }: PropsType) {
   return (
-    <Card sx={{ height: "100%" }}>
+    <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <CardMedia
         component="img"
         alt="News Thumbnail"
         height={150}
         image={data.urlToImage}
       />
-      <CardContent>
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+          pb: "16px !important",
+        }}
+      >
         <Text variant="h5" gutterBottom>
           {data.title}
         </Text>
@@ -52,7 +59,7 @@ function NewsCard({ data }: PropsType) {
           {data.description}
         </Text>
 
-        <CardActions sx={{ px: 0, pb: 0 }}>
+        <CardActions sx={{ px: 0, pb: 0, mt: "auto" }}>
           <Button href={data.url} target="_blank" size="small">
             Read More{" "}
           </Button>
