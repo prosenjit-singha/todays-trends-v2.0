@@ -1,6 +1,7 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import Root from "../layouts/root";
 import About from "../pages/About";
+import CommandList from "../pages/CommandList";
 import Home from "../pages/Home";
 import News from "../pages/News";
 import PageNotFound from "../pages/PageNotFound";
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "command-list",
+        element: <CommandList />,
       },
       {
         path: "*",

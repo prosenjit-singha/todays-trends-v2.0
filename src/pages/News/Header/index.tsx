@@ -4,8 +4,8 @@ import {
   IconButton,
   CircularProgress,
   Paper,
+  Button,
 } from "@mui/material";
-import LoadingButton from "@mui/lab/LoadingButton";
 import { BiSearch } from "react-icons/bi";
 import Dropdown from "./Dropdown";
 import countryList from "../../../data/countryList";
@@ -54,21 +54,30 @@ function Header({ isLoading }: PropsType) {
                   type="submit"
                   sx={{ display: ["none", "flex", "none"] }}
                 >
-                  {isLoading ? <CircularProgress size={20} /> : <BiSearch />}
+                  {isLoading ? (
+                    <CircularProgress color="inherit" size={20} />
+                  ) : (
+                    <BiSearch />
+                  )}
                 </IconButton>
               ),
             }}
           />
-          <LoadingButton
-            loading={isLoading}
+          <Button
+            disabled={isLoading}
             type="submit"
             variant="contained"
-            loadingPosition="end"
-            endIcon={<BiSearch />}
+            endIcon={
+              isLoading ? (
+                <CircularProgress color="inherit" size={20} />
+              ) : (
+                <BiSearch />
+              )
+            }
             sx={{ display: ["flex", "none", "flex"] }}
           >
             Search
-          </LoadingButton>
+          </Button>
         </Grid>
       </Grid>
     </Paper>

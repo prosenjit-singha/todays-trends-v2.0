@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography, styled, Box } from "@mui/material";
+import { Grid, Typography, styled, Box } from "@mui/material";
 import client from "../../assets/icons/client.png";
 import network from "../../assets/icons/network.png";
 import growth from "../../assets/icons/growth.png";
