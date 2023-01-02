@@ -3,12 +3,13 @@ import BottomSection from "./BottomSection";
 import Header from "./Header";
 import { Stack, Typography } from "@mui/material";
 import Cards from "./Cards";
+import { style } from "./const";
 
 function About() {
   return (
     <Main>
       <Header />
-      <Stack maxWidth={900} mx="auto" my={5}>
+      <Stack px={style.inlinePadding} mx="auto" my={5}>
         <Typography textAlign="center" variant="h4" gutterBottom>
           The Today's Trends Advantages
         </Typography>

@@ -1,5 +1,6 @@
 import { Box, styled, Stack, Typography, colors } from "@mui/material";
 import heroBg from "../../assets/images/hero/hero-9.jpg";
+import { style } from "./const";
 
 function Header() {
   return (
@@ -10,6 +11,7 @@ function Header() {
           component="h1"
           fontSize="clamp(1.5rem, 5vw, 2.5rem)"
           gutterBottom
+          fontWeight="bold"
         >
           What You Will Get from Today's Trends
         </Typography>
@@ -30,7 +32,8 @@ function Header() {
 export default Header;
 
 const Container = styled(Box)`
-  padding: 2rem 2rem;
+  padding-block: 2rem;
+  padding-inline: ${style.inlinePadding};
   height: clamp(280px, fit-content, 500px);
   background-color: ${({ theme }) =>
     theme.palette.mode === "dark"

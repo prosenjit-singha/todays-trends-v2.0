@@ -1,9 +1,10 @@
 import { Grid, styled, Typography, Stack } from "@mui/material";
 import reading from "../../assets/images/reading-newspaper.jpg";
+import { style } from "./const";
 
 function BottomSection() {
   return (
-    <Grid container sx={{ my: 5, px: [2, 3] }} spacing={2}>
+    <Grid container sx={{ my: 5, px: style.inlinePadding }} spacing={2}>
       <Grid item xs={12} sm={6} md={4}>
         <Image src={reading} alt="Reading Newspaper" />
       </Grid>

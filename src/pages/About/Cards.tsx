@@ -3,20 +3,22 @@ import client from "../../assets/icons/client.png";
 import network from "../../assets/icons/network.png";
 import growth from "../../assets/icons/growth.png";
 import community from "../../assets/icons/community.png";
+import { style } from "./const";
 
 function Cards() {
   return (
-    <Box mx={[2, 3]} maxWidth={780} sx={{ mx: "auto", px: [2, 3] }}>
-      <Grid container spacing={2}>
+    <Box px={style.inlinePadding} sx={{ mx: "auto" }}>
+      <Grid container spacing={3}>
         {cards.map((card, i) => (
           <Grid key={i} item xs={12} sm={6}>
-            <Paper
-              sx={{
+            <Box
+              sx={({ palette }) => ({
                 height: "100%",
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
-              }}
+                outline: `1px solid ${palette.divider}`,
+              })}
             >
               <Image src={card.imgPath} />
               <Typography variant="h5" textAlign="center">
@@ -25,7 +27,7 @@ function Cards() {
               <Typography color="text.secondary" textAlign="center">
                 {card.text}
               </Typography>
-            </Paper>
+            </Box>
           </Grid>
         ))}
       </Grid>
