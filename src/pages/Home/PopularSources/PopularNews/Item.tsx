@@ -5,32 +5,27 @@ import {
   lighten,
   darken,
   Typography,
+  Link,
 } from "@mui/material";
+import { format } from "date-fns";
 import { SlCalender } from "react-icons/sl";
+import Article from "../../../../Types/Article.types";
 
-function Item() {
+type Props = {
+  article: Article;
+};
+
+function Item({ article }: Props) {
   return (
     <Stack direction="row" alignItems="center">
       <ImageContainer>
-        <Image src="https://source.unsplash.com/random" />
+        <Image src={article.urlToImage} alt="News Thumbnail" />
       </ImageContainer>
       <Divider flexItem orientation="vertical" sx={{ mx: 1 }} />
       <Stack width="calc(100% - 60px)">
-        <Typography
-          sx={{
-            display: "-webkit-box",
-            WebkitLineClamp: "2",
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-          ipsa porro minus ea laborum ullam recusandae tempore itaque animi
-          numquam.
-        </Typography>
+        <Title href={article.url}>{article.title}</Title>
         <Typography color="text.secondary" fontSize="small">
-          Source
+          {article.source.name}
         </Typography>
         <Stack
           direction="row"
@@ -39,7 +34,9 @@ function Item() {
           color="text.secondary"
         >
           <SlCalender fontSize="small" />
-          <Typography fontSize="small">Dec 29, 2022</Typography>
+          <Typography fontSize="small">
+            {format(new Date(article.publishedAt), "PP")}
+          </Typography>
         </Stack>
       </Stack>
     </Stack>
@@ -66,4 +63,18 @@ const Image = styled("img")`
   height: 100%;
   object-fit: cover;
   object-position: center;
+`;
+
+const Title = styled(Link)`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: ${({ theme }) => theme.palette.text.primary};
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+  :hover {
+    text-decoration: underline;
+  }
 `;

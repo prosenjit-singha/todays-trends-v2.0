@@ -32,6 +32,7 @@ function Header() {
 export default Header;
 
 const Container = styled(Box)`
+  max-width: 1232px;
   padding-block: 2rem;
   padding-inline: ${style.inlinePadding};
   height: clamp(280px, fit-content, 500px);
@@ -45,4 +46,5 @@ const Container = styled(Box)`
   background-position: center;
   background-size: cover;
   align-items: center;
+  margin-inline: auto;
 `;
