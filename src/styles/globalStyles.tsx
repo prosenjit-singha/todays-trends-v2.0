@@ -40,11 +40,11 @@ export const globalStyles = (theme: Theme) => css`
       ? "rgba(255,255,255,0.25)"
       : "rgba(0,0,0,0.25)"};
   }
-  ::-webkit-scrollbar-track {
-  }
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: ${theme.palette.mode === "dark"
+      ? "rgba(255,255,255,0.25)"
+      : "rgba(0,0,0,0.25)"};
   }
   ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.5);

@@ -9,6 +9,7 @@ const Container = styled(Grid)(({ theme }) => ({
   borderTop: `1px solid ${theme.palette.divider}`,
   padding: 24,
   paddingBottom: 8,
+  paddingInline: "max(16px, calc((100vw - 1280px)/2))",
 }));
 
 function Footer() {

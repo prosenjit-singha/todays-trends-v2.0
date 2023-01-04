@@ -16,6 +16,7 @@ function Navbar() {
     <AppBar
       sx={{
         bgcolor: (props) => lighten(props.palette.background.paper, 0.025),
+        px: "calc((100vw - 1280px)/2)",
       }}
     >
       <Toolbar

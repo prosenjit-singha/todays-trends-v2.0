@@ -69,9 +69,10 @@ const banners = [
 
 // Styles
 
-const Container = styled(Swiper)((props) => ({
+const Container = styled(Swiper)(({ theme }) => ({
   width: "100%",
   maxHeight: "300px",
+  maxWidth: "1232px",
 }));
 
 const Banner = styled(SwiperSlide)(({ theme }) => ({

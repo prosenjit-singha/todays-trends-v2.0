@@ -20,7 +20,9 @@ function SubscribeSection() {
       sx={({ palette }) => ({
         py: 4,
         px: [2, 3],
-        mt: 2,
+        my: 2,
+        mx: "auto",
+        maxWidth: "1232px",
         bgcolor:
           palette.mode === "dark"
             ? lighten(palette.background.paper, 0.035)
