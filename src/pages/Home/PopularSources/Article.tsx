@@ -1,13 +1,16 @@
 import { Stack, Box, Typography, styled } from "@mui/material";
+import { format } from "date-fns";
 import { SlCalender, SlNote } from "react-icons/sl";
-function Article() {
+import ArticleType from "../../../Types/Article.types";
+
+type Props = {
+  data: ArticleType;
+};
+
+function Article({ data }: Props) {
   return (
     <Box>
-      <Title>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe odio qui
-        cumque recusandae dolorem? Cupiditate nesciunt distinctio facilis
-        suscipit soluta.
-      </Title>
+      <Title>{data.title}</Title>
       <Stack
         direction="row"
         spacing={1}
@@ -15,7 +18,7 @@ function Article() {
         color="text.secondary"
       >
         <SlNote />
-        <Author>Prosenjit Singha</Author>
+        <Author>{data.author}</Author>
       </Stack>
       <Stack
         direction="row"
@@ -24,7 +27,7 @@ function Article() {
         color="text.secondary"
       >
         <SlCalender />
-        <Typography>Dec 29, 2022</Typography>
+        <Typography>{format(new Date(data.publishedAt), "PP")}</Typography>
       </Stack>
     </Box>
   );

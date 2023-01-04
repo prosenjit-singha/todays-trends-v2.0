@@ -1,17 +1,22 @@
 import { Stack, Divider, styled, lighten, darken } from "@mui/material";
+import ArticleType from "../../../Types/Article.types";
 import Article from "./Article";
 
-function ArticleStack() {
+type Props = {
+  articles: ArticleType[];
+};
+
+function ArticleStack({ articles }: Props) {
   return (
     <Stack width="100%">
       <Header>
         <HeaderImage src="https://source.unsplash.com/random/" />
       </Header>
-      <Article />
+      <Article data={articles[0]} />
       <Divider sx={{ mt: 1 }} />
-      <Article />
+      <Article data={articles[1]} />
       <Divider sx={{ mt: 1 }} />
-      <Article />
+      <Article data={articles[2]} />
     </Stack>
   );
 }

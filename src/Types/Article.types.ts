@@ -1,4 +1,4 @@
-type ArticleType = {
+type Article = {
   source: {
     id: null | string;
     name: string;
@@ -12,4 +12,4 @@ type ArticleType = {
   content: string;
 };
 
-export default ArticleType;
+export default Article;
