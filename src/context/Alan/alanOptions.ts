@@ -1,5 +1,4 @@
 import { AlanButtonOptions } from "@alan-ai/alan-sdk-web/dist/AlanButtonOptions";
-import { COMMANDS } from "./types";
 
 export const alanOptions: AlanButtonOptions = {
   key: process.env.REACT_APP_ALAN_KEY || "",

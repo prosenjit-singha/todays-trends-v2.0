@@ -10,4 +10,4 @@ const categoryList = {
 
 export default categoryList;
 
-export type Category = keyof typeof categoryList;
+export type Category = keyof typeof categoryList | "";

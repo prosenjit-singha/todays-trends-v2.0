@@ -57,4 +57,4 @@ const countryList = {
 
 export default countryList;
 
-export type Country = keyof typeof countryList;
+export type Country = keyof typeof countryList | "";
