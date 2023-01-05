@@ -1,4 +1,5 @@
 import { Grid, Pagination } from "@mui/material";
+import { useNewsData } from "../../context/NewsProvider";
 import ArticleType from "../../Types/Article.types";
 import NewsCard from "./NewsCard";
 import NewsCardSkeleton from "./NewsCard.skeleton";
@@ -9,6 +10,15 @@ type PropsType = {
 };
 
 function NewsCards({ articles, isLoading }: PropsType) {
+  const { setFilter } = useNewsData();
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    setFilter((prev) => ({ ...prev, page: value }));
+  };
+
   return (
     <Grid container columnSpacing={2} rowSpacing={3} sx={{ px: [2, 3] }}>
       {isLoading &&
@@ -29,6 +39,7 @@ function NewsCards({ articles, isLoading }: PropsType) {
           color="primary"
           sx={{ display: "fex", justifyContent: "center" }}
           count={10}
+          onChange={handlePageChange}
         />
       </Grid>
     </Grid>

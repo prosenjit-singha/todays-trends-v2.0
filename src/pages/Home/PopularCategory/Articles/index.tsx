@@ -7,9 +7,8 @@ import FirstArticleSkeleton from "./FirstArticle.skeleton";
 
 function Articles({ category }: { category: string }) {
   const { data: articles = [], isLoading } = useFetchNews({
-    param: "everything",
+    param: "top-headlines",
     q: "bitcoin",
-    pageSize: 12,
     category,
   });
   return (

@@ -20,7 +20,7 @@ type PropsType = {
 function Header({ isLoading }: PropsType) {
   const searchFieldRef = useRef<HTMLInputElement>(null);
   const {
-    filter: { country, category, keywords },
+    filter: { country, category, keywords, page },
     setFilter,
   } = useNewsData();
 
@@ -38,15 +38,19 @@ function Header({ isLoading }: PropsType) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    let formatedString = "";
+    const temp = tempFilter.current;
+
     if (searchFieldRef.current?.value) {
-      const temp = tempFilter.current;
-      const formatedString = searchFieldRef.current.value;
-      setFilter({
-        country: temp.country,
-        category: temp.category,
-        keywords: formatedString,
-      });
+      formatedString = searchFieldRef.current.value;
     }
+
+    setFilter({
+      country: temp.country,
+      category: temp.category,
+      keywords: formatedString,
+      page,
+    });
   }
 
   return (

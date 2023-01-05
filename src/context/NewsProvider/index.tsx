@@ -1,13 +1,10 @@
 import { createContext, useContext, useState } from "react";
 import { Category } from "../../data/categoryList";
 import { Country } from "../../data/countryList";
+import useFetchNews from "../../hooks/useFetchNews";
 import Article from "../../Types/Article.types";
+import { Filter } from "../../Types/Filter.types";
 
-type Filter = {
-  country: Country;
-  category: Category;
-  keywords: string;
-};
 type Value = {
   articles: Article[];
   filter: Filter;
@@ -23,6 +20,15 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     country: "",
     category: "",
     keywords: "",
+    page: 1,
+  });
+
+  const { data, isLoading } = useFetchNews({
+    param: "top-headlines",
+    category: filter.category,
+    country: filter.country,
+    q: filter.keywords,
+    page: filter.page,
   });
 
   const value = {
@@ -31,6 +37,10 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     setFilter,
     setArticles,
   };
+
+  // consoles
+  // console.info(filter);
+
   return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;
 }
 

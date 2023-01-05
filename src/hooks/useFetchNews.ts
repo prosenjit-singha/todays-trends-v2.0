@@ -2,34 +2,52 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import ArticleType from "../Types/Article.types";
 
-type PropsType = {
+type CommonPorps = {
   q?: string;
   sortBy?: "relevancy" | "popularity" | "publishedAt";
-  param?: string;
   pageSize?: number;
   page?: number;
+};
+
+type Everything = CommonPorps & {
+  param?: "everything";
+  country?: never;
+  category?: never;
+};
+
+type TopHeadlines = CommonPorps & {
+  param?: "top-headlines";
   country?: string;
   category?: string;
 };
 
-const useFetchNews = ({
-  q,
-  sortBy,
-  param,
-  pageSize,
-  page,
-  category,
-  country,
-}: PropsType) => {
-  let url = `https://newsapi.org/v2/${param}?apiKey=testkey`;
+type PropsType = Everything | TopHeadlines;
 
-  if (q) url += `&q=${q}`;
+const useFetchNews = (props: PropsType) => {
+  const {
+    q,
+    sortBy,
+    param = "top-headlines",
+    pageSize = 12,
+    page = 1,
+    category,
+    country,
+  } = props;
+
+  let baseURL = `https://newsapi.org/v2/${param}?apiKey=${process.env.REACT_APP_NEWS_API}`;
+
+  let url = "";
+
+  if (q) url += `&q=${q.split(" ").join("+")}`;
   if (country) url += `&country=${country}`;
   if (category) url += `&category=${category}`;
   if (pageSize) url += `&pageSize=${pageSize}`;
   if (page) url += `&page=${page}`;
   // eslint-disable-next-line
   if (sortBy) url += `&url=${sortBy}`;
+
+  // consoles
+  console.info(url);
 
   return useQuery({
     queryKey: ["top-headings"],
