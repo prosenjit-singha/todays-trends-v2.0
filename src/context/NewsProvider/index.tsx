@@ -3,44 +3,33 @@ import { Category } from "../../data/categoryList";
 import { Country } from "../../data/countryList";
 import Article from "../../Types/Article.types";
 
-type Value = {
-  articles: Article[];
+type Filter = {
   country: Country;
   category: Category;
   keywords: string;
+};
+type Value = {
+  articles: Article[];
+  filter: Filter;
+  setFilter: React.Dispatch<React.SetStateAction<Filter>>;
   setArticles: React.Dispatch<React.SetStateAction<Article[]>>;
-  setCountry: React.Dispatch<React.SetStateAction<Country>>;
-  setCategory: React.Dispatch<React.SetStateAction<Category>>;
-  setKeywords: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const initialValues: Omit<
-  Value,
-  "setArticles" | "setCategory" | "setKeywords" | "setCountry"
-> = {
-  articles: [],
-  country: "",
-  category: "",
-  keywords: "",
-};
-
-const NewsContext = createContext<Value>({ ...initialValues } as Value);
+const NewsContext = createContext<Value>({} as Value);
 
 function NewsProvider({ children }: { children: React.ReactNode }) {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [country, setCountry] = useState<Country>("");
-  const [category, setCategory] = useState<Category>("");
-  const [keywords, setKeywords] = useState("");
+  const [filter, setFilter] = useState<Filter>({
+    country: "",
+    category: "",
+    keywords: "",
+  });
 
   const value = {
     articles,
-    country,
-    category,
-    keywords,
-    setCategory,
-    setCountry,
+    filter,
+    setFilter,
     setArticles,
-    setKeywords,
   };
   return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;
 }

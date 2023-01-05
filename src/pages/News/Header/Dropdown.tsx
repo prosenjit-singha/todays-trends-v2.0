@@ -7,23 +7,26 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 
-type PropsType<T> = {
+interface PropsType {
   isLoading: boolean;
   label: string;
+  name: string;
   defalutValue: string;
-  data: T;
-  setValue?: () => void;
-};
+  data: { [key: string]: string };
+  setValue: (v: string) => void;
+}
 
-function Dropdown<T extends { [key: string]: string }>({
+function Dropdown({
   data,
-  defalutValue,
-  label,
+  defalutValue = "",
+  label = "Select",
   isLoading,
-}: PropsType<T>) {
-  const [value, setValue] = useState(defalutValue);
+  setValue,
+}: PropsType) {
+  const [v, setV] = useState(defalutValue);
   const handleChange = (event: SelectChangeEvent) => {
-    setValue(event.target.value);
+    setV(event.target.value);
+    setValue(event.target.value); // ignore this error it will not cause any problem
   };
 
   return (
@@ -37,7 +40,7 @@ function Dropdown<T extends { [key: string]: string }>({
       <Select
         labelId="demo-select-small"
         id="demo-select-small"
-        value={value}
+        value={v}
         label={label}
         onChange={handleChange}
         MenuProps={{

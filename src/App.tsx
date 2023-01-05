@@ -4,6 +4,7 @@ import { CssBaseline, ThemeProvider, GlobalStyles } from "@mui/material";
 import { useThemeToggler } from "./context/ThemeToggler";
 import { globalStyles } from "./styles/globalStyles";
 import AlanProvider from "./context/Alan";
+import NewsProvider from "./context/NewsProvider";
 
 function App() {
   const { theme } = useThemeToggler();
@@ -12,9 +13,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme />
         <GlobalStyles styles={(p) => globalStyles(p)} />
-        <AlanProvider>
-          <RouterProvider router={router} />
-        </AlanProvider>
+        <NewsProvider>
+          <AlanProvider>
+            <RouterProvider router={router} />
+          </AlanProvider>
+        </NewsProvider>
       </ThemeProvider>
     </>
   );
