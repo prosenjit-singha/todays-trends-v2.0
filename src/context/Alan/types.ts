@@ -17,7 +17,7 @@ export enum COMMANDS {
 }
 
 export type ON_COMMAND_PROPS = {} & {
-  command: string;
+  command: keyof typeof COMMANDS;
   payload: object;
 };
 
