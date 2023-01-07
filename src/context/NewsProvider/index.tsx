@@ -9,13 +9,13 @@ type Value = {
   articles: Article[];
   filter: Filter;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
-  setArticles: React.Dispatch<React.SetStateAction<Article[]>>;
+  // setArticles: React.Dispatch<React.SetStateAction<Article[]>>;
 };
 
 const NewsContext = createContext<Value>({} as Value);
 
 function NewsProvider({ children }: { children: React.ReactNode }) {
-  const [articles, setArticles] = useState<Article[]>([]);
+  // const [articles, setArticles] = useState<Article[]>([]);
   const [filter, setFilter] = useState<Filter>({
     country: "",
     category: "",
@@ -23,7 +23,7 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     page: 1,
   });
 
-  const { data, isLoading } = useFetchNews({
+  const { data: articles = [], isLoading } = useFetchNews({
     param: "top-headlines",
     category: filter.category,
     country: filter.country,
@@ -35,7 +35,7 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     articles,
     filter,
     setFilter,
-    setArticles,
+    // setArticles,
   };
 
   // consoles

@@ -38,17 +38,16 @@ function Header({ isLoading }: PropsType) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    let formatedString = "";
+    let keywords = "";
     const temp = tempFilter.current;
 
     if (searchFieldRef.current?.value) {
-      formatedString = searchFieldRef.current.value;
+      keywords = searchFieldRef.current.value;
     }
-
     setFilter({
       country: temp.country,
       category: temp.category,
-      keywords: formatedString,
+      keywords,
       page,
     });
   }

@@ -47,7 +47,7 @@ const useFetchNews = (props: PropsType) => {
   if (sortBy) url += `&url=${sortBy}`;
 
   // consoles
-  console.info(url);
+  // console.info(url);
 
   return useQuery({
     queryKey: ["top-headings"],
@@ -55,7 +55,7 @@ const useFetchNews = (props: PropsType) => {
       axios
         .get("news.json")
         .then(async ({ data }) => {
-          await new Promise((resolve) => setTimeout(resolve, 5000));
+          // await new Promise((resolve) => setTimeout(resolve, 5000));
           return data.articles;
         })
         .catch((err) => console.error(err)),

@@ -14,9 +14,7 @@ function App() {
         <CssBaseline enableColorScheme />
         <GlobalStyles styles={(p) => globalStyles(p)} />
         <NewsProvider>
-          <AlanProvider>
-            <RouterProvider router={router} />
-          </AlanProvider>
+          <RouterProvider router={router} />
         </NewsProvider>
       </ThemeProvider>
     </>

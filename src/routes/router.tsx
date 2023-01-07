@@ -1,4 +1,5 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
+import AlanProvider from "../context/Alan";
 import Root from "../layouts/root";
 import About from "../pages/About";
 import CommandList from "../pages/CommandList";
@@ -9,7 +10,11 @@ import PageNotFound from "../pages/PageNotFound";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: (
+      <AlanProvider>
+        <Root />
+      </AlanProvider>
+    ),
     children: [
       {
         path: "",
