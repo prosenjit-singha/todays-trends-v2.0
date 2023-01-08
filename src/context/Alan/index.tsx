@@ -147,6 +147,7 @@ const AlanProvider = ({ children }: PropsType) => {
               setActiveArticle(null);
               break;
             case "navigate":
+              navigate(payload?.path || "/");
               break;
             case "toggle-theme":
               toggleTheme();

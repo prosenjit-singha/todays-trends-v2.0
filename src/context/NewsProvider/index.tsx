@@ -7,6 +7,7 @@ type Value = {
   articles: Article[];
   activeArticle: number | null;
   filter: Filter;
+  isLoading: boolean;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
   setActiveArticle: React.Dispatch<React.SetStateAction<number | null>>;
 };
@@ -35,6 +36,7 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     activeArticle,
     filter,
     setFilter,
+    isLoading,
     setActiveArticle,
   };
 
