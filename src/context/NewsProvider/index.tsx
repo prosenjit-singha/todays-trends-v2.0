@@ -38,7 +38,8 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     setActiveArticle,
   };
 
-  /************ CONSOLES ***********
+  /* <=========| CONSOLES |==========>
+   *
    * console.info(filter);
    */
   return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;

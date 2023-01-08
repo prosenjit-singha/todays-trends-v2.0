@@ -20,15 +20,15 @@ type PropsType = {
 const AlanProvider = ({ children }: PropsType) => {
   const alan = useRef<null | AlanButton>(null);
   const navigate = useNavigate();
-  const { articles } = useNewsData();
-  const { toggleTheme } = useThemeToggler();
+  const { articles, setActiveArticle } = useNewsData();
+  const { toggleTheme, theme } = useThemeToggler();
 
   //  Event Handlers
   const handleNewsByCategory = useCallback(() => {}, [alan]);
 
   const handleHighlight = useCallback(
     ({ detail: { activeIndex } }: CustomEvent<{ activeIndex: number }>) => {
-      console.info(activeIndex);
+      setActiveArticle(activeIndex);
     },
     [alan]
   );
@@ -52,7 +52,7 @@ const AlanProvider = ({ children }: PropsType) => {
         alan.current?.playText("Failed to open the article");
         return;
       }
-      alan.current?.playText(`Openning article number ${index}`);
+      alan.current?.playText(`Opening article number ${index}`);
 
       const url = articles[index - 1].url;
 
@@ -61,6 +61,22 @@ const AlanProvider = ({ children }: PropsType) => {
       console.info(index, url);
     },
     [alan, articles]
+  );
+
+  const handleSetTheme = useCallback(
+    ({ detail }: CustomEvent<{ mode: "light" | "dark" }>) => {
+      if (theme.palette.mode === detail.mode) {
+        alan.current?.playText(
+          `The website theme is already in the ${detail.mode} mode.`
+        );
+      } else {
+        alan.current?.playText(
+          `Changing website theme to the ${detail.mode} mode.`
+        );
+        toggleTheme();
+      }
+    },
+    [alan, theme]
   );
 
   // Event listener
@@ -74,6 +90,10 @@ const AlanProvider = ({ children }: PropsType) => {
     window.addEventListener(
       COMMANDS.OPEN_ARTICLE,
       handleOpenArticle as EventListener
+    );
+    window.addEventListener(
+      COMMANDS.SET_THEME,
+      handleSetTheme as EventListener
     );
 
     return () => {
@@ -90,8 +110,18 @@ const AlanProvider = ({ children }: PropsType) => {
         COMMANDS.OPEN_ARTICLE,
         handleOpenArticle as EventListener
       );
+      window.removeEventListener(
+        COMMANDS.SET_THEME,
+        handleSetTheme as EventListener
+      );
     };
-  }, [handleNewsByCategory, handleReadHeadlines]);
+  }, [
+    handleNewsByCategory,
+    handleReadHeadlines,
+    handleHighlight,
+    handleOpenArticle,
+    handleSetTheme,
+  ]);
 
   useEffect(() => {
     if (alan.current) return;
@@ -114,11 +144,17 @@ const AlanProvider = ({ children }: PropsType) => {
               );
               break;
             case "stop-active-article-effect":
+              setActiveArticle(null);
               break;
             case "navigate":
               break;
             case "toggle-theme":
               toggleTheme();
+              break;
+            case "set-theme":
+              window.dispatchEvent(
+                new CustomEvent(command, { detail: payload })
+              );
               break;
             case "go-backward":
               navigate(-1);
