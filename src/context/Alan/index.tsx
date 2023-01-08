@@ -15,7 +15,7 @@ type PropsType = {
   children: React.ReactNode;
 };
 
-type OnCommand = object & { command: string; payload: object };
+// type OnCommand = object & { command: string; payload: object };
 
 const AlanProvider = ({ children }: PropsType) => {
   const alan = useRef<null | AlanButton>(null);
@@ -49,7 +49,7 @@ const AlanProvider = ({ children }: PropsType) => {
       const index = parseInt(wordToNum(detail.number));
 
       if (isNaN(index)) {
-        alan.current?.playText("Faild to open the article");
+        alan.current?.playText("Failed to open the article");
         return;
       }
       alan.current?.playText(`Openning article number ${index}`);
