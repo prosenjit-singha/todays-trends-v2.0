@@ -35,13 +35,6 @@ export const alanOptions: AlanButtonOptions = {
       if (payload.articles.length) dispatch(setLoading(false));
       dispatch(setPage(1));
       dispatch(setCategory(toTitle(payload.category)));
-    }  else if (command === COMMANDS.OPEN_PAGE) {
-      const page = wordsToNumbers(payload.page);
-      if (page === "one") {
-        dispatch(setPage(page));
-      } else {
-        dispatch(setPage(parseInt(page)));
-      }
     } 
 */
     // }

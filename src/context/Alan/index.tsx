@@ -20,17 +20,17 @@ type PropsType = {
 const AlanProvider = ({ children }: PropsType) => {
   const alan = useRef<null | AlanButton>(null);
   const navigate = useNavigate();
-  const { articles, setActiveArticle } = useNewsData();
+  const { articles, setActiveArticle, setFilter, filter } = useNewsData();
   const { toggleTheme, theme } = useThemeToggler();
 
   //  Event Handlers
-  const handleNewsByCategory = useCallback(() => {}, [alan]);
+  const handleNewsByCategory = useCallback(() => {}, []);
 
   const handleHighlight = useCallback(
     ({ detail: { activeIndex } }: CustomEvent<{ activeIndex: number }>) => {
       setActiveArticle(activeIndex);
     },
-    [alan]
+    [setActiveArticle]
   );
 
   const handleReadHeadlines = useCallback(() => {
@@ -62,6 +62,13 @@ const AlanProvider = ({ children }: PropsType) => {
     },
     [alan, articles]
   );
+  const handlePageChange = useCallback(
+    ({ detail: { page } }: CustomEvent<{ page: string }>) => {
+      const pageNumber = parseInt(wordToNum(page));
+      setFilter({ ...filter, page: pageNumber });
+    },
+    [filter, setFilter]
+  );
 
   const handleSetTheme = useCallback(
     ({ detail }: CustomEvent<{ mode: "light" | "dark" }>) => {
@@ -76,7 +83,7 @@ const AlanProvider = ({ children }: PropsType) => {
         toggleTheme();
       }
     },
-    [alan, theme]
+    [alan, theme, toggleTheme]
   );
 
   // Event listener
@@ -94,6 +101,10 @@ const AlanProvider = ({ children }: PropsType) => {
     window.addEventListener(
       COMMANDS.SET_THEME,
       handleSetTheme as EventListener
+    );
+    window.addEventListener(
+      COMMANDS.OPEN_PAGE,
+      handlePageChange as EventListener
     );
 
     return () => {
@@ -114,6 +125,10 @@ const AlanProvider = ({ children }: PropsType) => {
         COMMANDS.SET_THEME,
         handleSetTheme as EventListener
       );
+      window.removeEventListener(
+        COMMANDS.OPEN_PAGE,
+        handlePageChange as EventListener
+      );
     };
   }, [
     handleNewsByCategory,
@@ -121,7 +136,15 @@ const AlanProvider = ({ children }: PropsType) => {
     handleHighlight,
     handleOpenArticle,
     handleSetTheme,
+    handlePageChange,
   ]);
+
+  // News Data Updater
+  // useEffect(() => {
+  //   if (!alan.current?.isActive()) alan.current?.activate();
+
+  //   alan.current?.callProjectApi("updateData", { articles, page }, () => {});
+  // }, [articles]);
 
   useEffect(() => {
     if (alan.current) return;
@@ -149,6 +172,11 @@ const AlanProvider = ({ children }: PropsType) => {
             case "navigate":
               navigate(payload?.path || "/");
               break;
+            case "open-page":
+              window.dispatchEvent(
+                new CustomEvent(command, { detail: payload })
+              );
+              break;
             case "toggle-theme":
               toggleTheme();
               break;
@@ -170,7 +198,7 @@ const AlanProvider = ({ children }: PropsType) => {
         },
       } as any);
     }
-  }, []);
+  }, [navigate, setActiveArticle, toggleTheme]);
 
   return (
     <AlanContext.Provider value={{ alan: alan.current }}>

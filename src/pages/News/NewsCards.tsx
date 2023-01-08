@@ -10,14 +10,15 @@ type PropsType = {
 };
 
 function NewsCards({ articles, isLoading }: PropsType) {
-  const { setFilter } = useNewsData();
-
+  const { setFilter, filter } = useNewsData();
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
     setFilter((prev) => ({ ...prev, page: value }));
   };
+
+  console.info("Page=>", filter.page);
 
   return (
     <Grid container columnSpacing={2} rowSpacing={3} sx={{ px: [2, 3] }}>
@@ -34,12 +35,14 @@ function NewsCards({ articles, isLoading }: PropsType) {
       ))}
       <Grid item xs={12}>
         <Pagination
+          defaultPage={filter.page}
+          page={filter.page}
+          count={10}
+          onChange={handlePageChange}
           variant="outlined"
           shape="rounded"
           color="primary"
           sx={{ display: "fex", justifyContent: "center" }}
-          count={10}
-          onChange={handlePageChange}
         />
       </Grid>
     </Grid>

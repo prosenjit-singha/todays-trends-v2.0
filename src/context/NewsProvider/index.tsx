@@ -35,8 +35,8 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     articles,
     activeArticle,
     filter,
-    setFilter,
     isLoading,
+    setFilter,
     setActiveArticle,
   };
 

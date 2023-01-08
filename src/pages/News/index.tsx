@@ -1,6 +1,5 @@
 import { Main } from "../../components/styled/containers";
 import { useNewsData } from "../../context/NewsProvider";
-import useFetchNews from "../../hooks/useFetchNews";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
 import Header from "./Header";
 import NewsCards from "./NewsCards";
