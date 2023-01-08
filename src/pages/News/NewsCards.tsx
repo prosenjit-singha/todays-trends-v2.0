@@ -18,8 +18,6 @@ function NewsCards({ articles, isLoading }: PropsType) {
     setFilter((prev) => ({ ...prev, page: value }));
   };
 
-  console.info("Page=>", filter.page);
-
   return (
     <Grid container columnSpacing={2} rowSpacing={3} sx={{ px: [2, 3] }}>
       {isLoading &&

@@ -40,10 +40,10 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     setActiveArticle,
   };
 
-  /* <=========| CONSOLES |==========>
-   *
-   * console.info(filter);
-   */
+  // <=========| CONSOLES |==========>
+  //  *
+  console.info("Latest Filter Data: ", filter);
+
   return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;
 }
 

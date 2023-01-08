@@ -2,7 +2,6 @@ import HomeIcon from "@mui/icons-material/CottageOutlined";
 import InfoIcon from "@mui/icons-material/InfoOutlined";
 import NewsIcon from "@mui/icons-material/NewspaperOutlined";
 import ContactIcon from "@mui/icons-material/ContactMailOutlined";
-// import ListIcon from '@mui/icons-material/ListAltOutlined';
 
 const navlinks = [
   {

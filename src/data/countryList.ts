@@ -53,8 +53,10 @@ const countryList = {
   "United Kingdom": "uk",
   "United States": "us",
   Venuzuela: "ve",
-};
+} as const;
 
 export default countryList;
 
-export type Country = keyof typeof countryList | "";
+type ReverseMap<T> = T[keyof T];
+
+export type Country = ReverseMap<typeof countryList> | "";

@@ -5,6 +5,7 @@ import { useNewsData } from "../NewsProvider";
 import { COMMANDS, ON_COMMAND_PROPS } from "./types";
 import { useNavigate } from "react-router-dom";
 import { useThemeToggler } from "../ThemeToggler";
+import { Category } from "../../data/categoryList";
 const wordToNum = require("word-to-numbers");
 
 export const AlanContext = createContext<{ alan: AlanButton | null }>({
@@ -24,7 +25,12 @@ const AlanProvider = ({ children }: PropsType) => {
   const { toggleTheme, theme } = useThemeToggler();
 
   //  Event Handlers
-  const handleNewsByCategory = useCallback(() => {}, []);
+  const handleNewsByCategory = useCallback(
+    ({ detail: { category } }: CustomEvent<{ category: Category }>) => {
+      setFilter({ ...filter, category });
+    },
+    [setFilter, filter]
+  );
 
   const handleHighlight = useCallback(
     ({ detail: { activeIndex } }: CustomEvent<{ activeIndex: number }>) => {
@@ -88,7 +94,10 @@ const AlanProvider = ({ children }: PropsType) => {
 
   // Event listener
   useEffect(() => {
-    window.addEventListener(COMMANDS.NEWS_BY_CATEGORY, handleNewsByCategory);
+    window.addEventListener(
+      COMMANDS.NEWS_BY_CATEGORY,
+      handleNewsByCategory as EventListener
+    );
     window.addEventListener(COMMANDS.READ_HEADLINES, handleReadHeadlines);
     window.addEventListener(
       COMMANDS.HIGHLIGHT,
@@ -110,7 +119,7 @@ const AlanProvider = ({ children }: PropsType) => {
     return () => {
       window.removeEventListener(
         COMMANDS.NEWS_BY_CATEGORY,
-        handleNewsByCategory
+        handleNewsByCategory as EventListener
       );
       window.removeEventListener(COMMANDS.READ_HEADLINES, handleReadHeadlines);
       window.removeEventListener(
@@ -153,6 +162,11 @@ const AlanProvider = ({ children }: PropsType) => {
         key: process.env.REACT_APP_ALAN_KEY || "",
         onCommand: ({ command, payload }: ON_COMMAND_PROPS) => {
           switch (command) {
+            case "news-by-category":
+              window.dispatchEvent(
+                new CustomEvent(command, { detail: payload })
+              );
+              break;
             case "read-headlines":
               window.dispatchEvent(new CustomEvent(command));
               break;

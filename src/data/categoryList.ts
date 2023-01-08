@@ -6,8 +6,10 @@ const categoryList = {
   Science: "science",
   Sports: "sports",
   Technology: "technology",
-};
+} as const;
 
 export default categoryList;
 
-export type Category = keyof typeof categoryList | "";
+type ReverseMap<T> = T[keyof T];
+
+export type Category = ReverseMap<typeof categoryList> | "";
