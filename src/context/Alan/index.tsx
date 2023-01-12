@@ -25,9 +25,21 @@ const AlanProvider = ({ children }: PropsType) => {
   const { toggleTheme, theme } = useThemeToggler();
 
   //  Event Handlers
+  const handleNewsByTerms = useCallback(
+    ({ detail }: CustomEvent<{ keywords: string }>) => {
+      setFilter({
+        category: "",
+        keywords: detail.keywords,
+        country: "",
+        page: 1,
+      });
+    },
+    []
+  );
+
   const handleNewsByCategory = useCallback(
     ({ detail: { category } }: CustomEvent<{ category: Category }>) => {
-      setFilter({ ...filter, category });
+      setFilter({ category, country: "", keywords: "", page: 1 });
     },
     [setFilter, filter]
   );
@@ -95,6 +107,10 @@ const AlanProvider = ({ children }: PropsType) => {
   // Event listener
   useEffect(() => {
     window.addEventListener(
+      COMMANDS.NEWS_BY_TERMS,
+      handleNewsByTerms as EventListener
+    );
+    window.addEventListener(
       COMMANDS.NEWS_BY_CATEGORY,
       handleNewsByCategory as EventListener
     );
@@ -138,6 +154,10 @@ const AlanProvider = ({ children }: PropsType) => {
         COMMANDS.OPEN_PAGE,
         handlePageChange as EventListener
       );
+      window.removeEventListener(
+        COMMANDS.NEWS_BY_TERMS,
+        handleNewsByTerms as EventListener
+      );
     };
   }, [
     handleNewsByCategory,
@@ -162,6 +182,8 @@ const AlanProvider = ({ children }: PropsType) => {
         key: process.env.REACT_APP_ALAN_KEY || "",
         onCommand: ({ command, payload }: ON_COMMAND_PROPS) => {
           switch (command) {
+            case "news-by-terms":
+              break;
             case "news-by-category":
               window.dispatchEvent(
                 new CustomEvent(command, { detail: payload })

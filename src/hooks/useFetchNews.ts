@@ -1,21 +1,38 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import ArticleType from "../Types/Article.types";
+import Article from "../Types/Article.types";
 
-type CommonPorps = {
+type SuccessRes = {
+  status: string;
+  totalResults: 38;
+  articles: Article[];
+};
+
+type ErrorRes = {
+  status: string;
+  code: string;
+  message: string;
+};
+
+type CommonProps = {
   q?: string;
   sortBy?: "relevancy" | "popularity" | "publishedAt";
   pageSize?: number;
   page?: number;
 };
 
-type Everything = CommonPorps & {
+type CallbackProps = {
+  onSuccess: () => void;
+  onError: () => void;
+};
+
+type Everything = CommonProps & {
   param?: "everything";
   country?: never;
   category?: never;
 };
 
-type TopHeadlines = CommonPorps & {
+type TopHeadlines = CommonProps & {
   param?: "top-headlines";
   country?: string;
   category?: string;
@@ -49,19 +66,15 @@ const useFetchNews = (props: PropsType) => {
   // consoles
   // console.info(url);
 
-  return useQuery({
+  return useQuery<SuccessRes, ErrorRes>({
     queryKey: ["top-headings"],
-    queryFn: (): Promise<ArticleType[]> =>
-      axios
-        .get("news.json")
-        .then(async ({ data }) => {
-          // await new Promise((resolve) => setTimeout(resolve, 5000));
-          return data.articles;
-        })
-        .catch((err) => console.error(err)),
+    queryFn: () => axios.get("news.json").then((res) => res.data),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     // staleTime: Infinity,
+    // initialData: {},
+    // select: (res) => res
+    onSuccess: (res) => console.info(res),
   });
 };
 

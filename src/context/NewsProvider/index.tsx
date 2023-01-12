@@ -6,6 +6,8 @@ import { Filter } from "../../Types/Filter.types";
 type Value = {
   articles: Article[];
   activeArticle: number | null;
+  status: string;
+  totalResults: number;
   filter: Filter;
   isLoading: boolean;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
@@ -23,16 +25,20 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
     page: 1,
   });
 
-  const { data: articles = [], isLoading } = useFetchNews({
+  const { data, isLoading } = useFetchNews({
     param: "top-headlines",
     category: filter.category,
     country: filter.country,
     q: filter.keywords,
     page: filter.page,
   });
-
+  const articles = data?.articles || [];
+  const totalResults = data?.totalResults || 0;
+  const status = data?.status || "";
   const value = {
     articles,
+    status,
+    totalResults,
     activeArticle,
     filter,
     isLoading,
@@ -42,7 +48,7 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
 
   // <=========| CONSOLES |==========>
   //  *
-  console.info("Latest Filter Data: ", filter);
+  // console.info("Latest Filter Data: ", filter);
 
   return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;
 }

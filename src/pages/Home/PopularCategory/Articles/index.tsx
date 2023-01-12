@@ -6,11 +6,12 @@ import FirstArticle from "./FirstArticle";
 import FirstArticleSkeleton from "./FirstArticle.skeleton";
 
 function Articles({ category }: { category: string }) {
-  const { data: articles = [], isLoading } = useFetchNews({
+  const { data, isLoading } = useFetchNews({
     param: "top-headlines",
     q: "bitcoin",
     category,
   });
+  const articles = data?.articles || [];
   return (
     <Container>
       {isLoading && <FirstArticleSkeleton />}

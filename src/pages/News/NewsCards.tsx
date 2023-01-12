@@ -10,7 +10,7 @@ type PropsType = {
 };
 
 function NewsCards({ articles, isLoading }: PropsType) {
-  const { setFilter, filter } = useNewsData();
+  const { setFilter, filter, totalResults = 0 } = useNewsData();
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
@@ -35,7 +35,7 @@ function NewsCards({ articles, isLoading }: PropsType) {
         <Pagination
           defaultPage={filter.page}
           page={filter.page}
-          count={10}
+          count={totalResults}
           onChange={handlePageChange}
           variant="outlined"
           shape="rounded"

@@ -4,7 +4,9 @@ import Article from "./Article";
 import ArticleSkeleton from "./Article.skeleton";
 
 function Articles() {
-  const { data: articles = [], isLoading } = useFetchNews({});
+  const { data, isLoading } = useFetchNews({});
+  const articles = data?.articles || [];
+
   return (
     <Container container>
       {isLoading && [1, 2, 3].map((i) => <ArticleSkeleton key={i} />)}

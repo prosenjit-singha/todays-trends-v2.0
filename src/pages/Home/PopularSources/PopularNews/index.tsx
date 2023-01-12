@@ -4,7 +4,8 @@ import Item from "./Item";
 import ItemSkeleton from "./Item.skeleton";
 
 function PopularNews() {
-  const { data = [], isLoading } = useFetchNews({});
+  const { data, isLoading } = useFetchNews({});
+  const articles = data?.articles || [];
   return (
     <Box>
       <Typography variant="h5" mb={2}>
@@ -18,7 +19,7 @@ function PopularNews() {
               {i < 4 && <Divider sx={{ my: 1 }} />}
             </Box>
           ))}
-        {data.slice(0, 4).map((article, i) => (
+        {articles.slice(0, 4).map((article, i) => (
           <Box key={i}>
             <Item article={article} />
             {i < 4 && <Divider sx={{ my: 1 }} />}

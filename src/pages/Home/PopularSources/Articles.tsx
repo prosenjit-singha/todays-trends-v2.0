@@ -3,15 +3,13 @@ import useFetchNews from "../../../hooks/useFetchNews";
 import ArticleStack from "./ArticleStack";
 import ArticleStackSkeleton from "./ArticleStack.skeleton";
 function Articles() {
-  const { data: source1News = [], isLoading: isSource1Loading } = useFetchNews(
-    {}
-  );
-  const { data: source2News = [], isLoading: isSource2Loading } = useFetchNews(
-    {}
-  );
-  const { data: source3News = [], isLoading: isSource3Loading } = useFetchNews(
-    {}
-  );
+  const { data: data1, isLoading: isSource1Loading } = useFetchNews({});
+  const { data: data2, isLoading: isSource2Loading } = useFetchNews({});
+  const { data: data3, isLoading: isSource3Loading } = useFetchNews({});
+  const source1News = data1?.articles || [];
+  const source2News = data2?.articles || [];
+  const source3News = data3?.articles || [];
+
   return (
     <Grid container spacing={3}>
       {/* Source 1 stack */}
