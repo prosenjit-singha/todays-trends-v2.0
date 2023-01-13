@@ -4,7 +4,10 @@ import Article from "./Article";
 import ArticleSkeleton from "./Article.skeleton";
 
 function Articles() {
-  const { data, isLoading } = useFetchNews({});
+  const { data, isLoading } = useFetchNews({
+    param: "top-headlines",
+    country: "us",
+  });
   const articles = data?.articles || [];
 
   return (

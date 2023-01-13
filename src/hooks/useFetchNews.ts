@@ -30,12 +30,14 @@ type Everything = CommonProps & {
   param?: "everything";
   country?: never;
   category?: never;
+  sources?: never;
 };
 
 type TopHeadlines = CommonProps & {
   param?: "top-headlines";
   country?: string;
   category?: string;
+  sources?: string;
 };
 
 export type FetchNews = Everything | TopHeadlines;

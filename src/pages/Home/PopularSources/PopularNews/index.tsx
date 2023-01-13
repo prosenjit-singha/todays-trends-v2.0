@@ -4,7 +4,10 @@ import Item from "./Item";
 import ItemSkeleton from "./Item.skeleton";
 
 function PopularNews() {
-  const { data, isLoading } = useFetchNews({});
+  const { data, isLoading } = useFetchNews({
+    param: "everything",
+    q: "technology",
+  });
   const articles = data?.articles || [];
   return (
     <Box>

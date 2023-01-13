@@ -3,9 +3,18 @@ import useFetchNews from "../../../hooks/useFetchNews";
 import ArticleStack from "./ArticleStack";
 import ArticleStackSkeleton from "./ArticleStack.skeleton";
 function Articles() {
-  const { data: data1, isLoading: isSource1Loading } = useFetchNews({});
-  const { data: data2, isLoading: isSource2Loading } = useFetchNews({});
-  const { data: data3, isLoading: isSource3Loading } = useFetchNews({});
+  const { data: data1, isLoading: isSource1Loading } = useFetchNews({
+    param: "top-headlines",
+    sources: "abc-news",
+  });
+  const { data: data2, isLoading: isSource2Loading } = useFetchNews({
+    param: "top-headlines",
+    sources: "bbc-news",
+  });
+  const { data: data3, isLoading: isSource3Loading } = useFetchNews({
+    param: "top-headlines",
+    sources: "cbc-news",
+  });
   const source1News = data1?.articles || [];
   const source2News = data2?.articles || [];
   const source3News = data3?.articles || [];
