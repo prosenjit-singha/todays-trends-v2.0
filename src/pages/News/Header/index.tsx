@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   Grid,
   TextField,
@@ -12,6 +12,7 @@ import Dropdown from "./Dropdown";
 import countryList, { Country } from "../../../data/countryList";
 import categoryList, { Category } from "../../../data/categoryList";
 import { useNewsData } from "../../../context/NewsProvider";
+import { useSearchParams } from "react-router-dom";
 
 type PropsType = {
   isLoading: boolean;
@@ -23,7 +24,7 @@ function Header({ isLoading }: PropsType) {
     filter: { country, category, keywords, page },
     setFilter,
   } = useNewsData();
-
+  const [query, setQuery] = useSearchParams();
   const tempFilter = useRef<{
     country: Country;
     category: Category;
@@ -50,7 +51,29 @@ function Header({ isLoading }: PropsType) {
       keywords,
       page,
     });
+
+    if (!keywords && !temp.category && !temp.category) setQuery({});
+    else
+      setQuery({
+        country: temp.country,
+        category: temp.category,
+        q: keywords,
+      });
   }
+
+  useEffect(() => {
+    const country = query.get("country");
+    const category = query.get("category");
+    const q = query.get("q");
+    const page = query.get("page");
+
+    setFilter({
+      country: (country as Country) || "",
+      category: (category as Category) || "",
+      keywords: q || "",
+      page: parseInt(page || "1"),
+    });
+  }, []);
 
   return (
     <Paper elevation={3} sx={{ mt: 2, mx: [2, 3], p: 2, mb: 3 }}>
@@ -67,7 +90,7 @@ function Header({ isLoading }: PropsType) {
             isLoading={isLoading}
             name="country"
             label="Country"
-            defalutValue={country}
+            defaultValue={query.get("country") || ""}
             data={countryList}
             setValue={changeCountry}
           />
@@ -79,7 +102,7 @@ function Header({ isLoading }: PropsType) {
             isLoading={isLoading}
             name="category"
             label="Category"
-            defalutValue={category}
+            defaultValue={query.get("category") || ""}
             data={categoryList}
             setValue={changeCategory}
           />

@@ -21,7 +21,7 @@ type CommonProps = {
   page?: number;
 };
 
-type CallbackProps = {
+type ResHandler = {
   onSuccess: () => void;
   onError: () => void;
 };
@@ -40,7 +40,7 @@ type TopHeadlines = CommonProps & {
 
 type PropsType = Everything | TopHeadlines;
 
-const useFetchNews = (props: PropsType) => {
+const useFetchNews = (props: PropsType, resHandler?: ResHandler) => {
   const {
     q,
     sortBy,
@@ -71,10 +71,13 @@ const useFetchNews = (props: PropsType) => {
     queryFn: () => axios.get("news.json").then((res) => res.data),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
+    onSuccess: resHandler?.onSuccess,
+    onError: resHandler?.onError,
     // staleTime: Infinity,
     // initialData: {},
     // select: (res) => res
-    onSuccess: (res) => console.info(res),
+    // onSuccess: (res) => console.info(res),
+    // onError: (err) => console.error(err),
   });
 };
 

@@ -11,19 +11,19 @@ interface PropsType {
   isLoading: boolean;
   label: string;
   name: string;
-  defalutValue: string;
+  defaultValue: string;
   data: { [key: string]: string };
   setValue: (v: string) => void;
 }
 
 function Dropdown({
   data,
-  defalutValue = "",
+  defaultValue = "",
   label = "Select",
   isLoading,
   setValue,
 }: PropsType) {
-  const [v, setV] = useState(defalutValue);
+  const [v, setV] = useState(defaultValue);
   const handleChange = (event: SelectChangeEvent) => {
     setV(event.target.value);
     setValue(event.target.value); // ignore this error it will not cause any problem

@@ -1,4 +1,5 @@
 import { Grid, Pagination } from "@mui/material";
+import { useSearchParams } from "react-router-dom";
 import { useNewsData } from "../../context/NewsProvider";
 import ArticleType from "../../Types/Article.types";
 import NewsCard from "./NewsCard";
@@ -10,12 +11,19 @@ type PropsType = {
 };
 
 function NewsCards({ articles, isLoading }: PropsType) {
+  const [_query, setQuery] = useSearchParams();
   const { setFilter, filter, totalResults = 0 } = useNewsData();
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
     setFilter((prev) => ({ ...prev, page: value }));
+    setQuery({
+      country: filter.country,
+      category: filter.category,
+      q: filter.keywords,
+      page: value.toString(),
+    });
   };
 
   return (
