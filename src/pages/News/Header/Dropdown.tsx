@@ -11,6 +11,7 @@ interface PropsType {
   isLoading: boolean;
   label: string;
   name: string;
+  value: string;
   defaultValue: string;
   data: { [key: string]: string };
   setValue: (v: string) => void;
@@ -18,14 +19,15 @@ interface PropsType {
 
 function Dropdown({
   data,
+  value,
   defaultValue = "",
   label = "Select",
   isLoading,
   setValue,
 }: PropsType) {
-  const [v, setV] = useState(defaultValue);
+  // const [v, setV] = useState(defaultValue);
   const handleChange = (event: SelectChangeEvent) => {
-    setV(event.target.value);
+    // setV(event.target.value);
     setValue(event.target.value); // ignore this error it will not cause any problem
   };
 
@@ -40,7 +42,7 @@ function Dropdown({
       <Select
         labelId="demo-select-small"
         id="demo-select-small"
-        value={v}
+        value={value}
         label={label}
         onChange={handleChange}
         MenuProps={{

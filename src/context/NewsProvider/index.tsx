@@ -19,19 +19,26 @@ const NewsContext = createContext<Value>({} as Value);
 function NewsProvider({ children }: { children: React.ReactNode }) {
   const [activeArticle, setActiveArticle] = useState<null | number>(null);
   const [filter, setFilter] = useState<Filter>({
-    country: "",
+    country: "us",
     category: "",
     keywords: "",
     page: 1,
   });
 
-  const { data, isLoading } = useFetchNews({
-    param: "top-headlines",
-    category: filter.category,
-    country: filter.country,
-    q: filter.keywords,
-    page: filter.page,
-  });
+  const { data, isLoading } = useFetchNews(
+    !!filter.keywords
+      ? {
+          param: "everything",
+          q: filter.keywords,
+          page: filter.page,
+        }
+      : {
+          param: "top-headlines",
+          page: filter.page,
+          country: filter.country ? filter.country : "us",
+          category: filter.category,
+        }
+  );
   const articles = data?.articles || [];
   const totalResults = data?.totalResults || 0;
   const status = data?.status || "";

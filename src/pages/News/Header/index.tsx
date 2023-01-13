@@ -31,9 +31,24 @@ function Header({ isLoading }: PropsType) {
   }>({ country, category });
 
   function changeCountry(value: string) {
+    if (searchFieldRef.current) searchFieldRef.current.value = "";
+    setFilter((prev) => ({ ...prev, keywords: "", country: value as Country }));
+
+    let q: any = { country: value };
+    if (tempFilter.current.category) q.category = tempFilter.current.category;
+    setQuery(q);
     tempFilter.current = { ...tempFilter.current, country: value as Country };
   }
   function changeCategory(value: string) {
+    if (searchFieldRef.current) searchFieldRef.current.value = "";
+    let q: any = { category: value };
+    if (tempFilter.current.country) q.country = tempFilter.current.country;
+    setQuery(q);
+    setFilter((prev) => ({
+      ...prev,
+      category: value as Category,
+      keywords: "",
+    }));
     tempFilter.current = { ...tempFilter.current, category: value as Category };
   }
 
@@ -45,20 +60,20 @@ function Header({ isLoading }: PropsType) {
     if (searchFieldRef.current?.value) {
       keywords = searchFieldRef.current.value;
     }
-    setFilter({
-      country: temp.country,
-      category: temp.category,
-      keywords,
-      page,
-    });
-
-    if (!keywords && !temp.category && !temp.category) setQuery({});
-    else
-      setQuery({
+    if (!!keywords) {
+      setFilter({ country: "", category: "", keywords, page: 1 });
+      setQuery({ q: keywords });
+      tempFilter.current = { country: "", category: "" };
+    } else {
+      if (searchFieldRef.current) searchFieldRef.current.value = "";
+      setFilter({
         country: temp.country,
         category: temp.category,
-        q: keywords,
+        keywords: "",
+        page,
       });
+      setQuery({ country: temp.country, category: temp.category });
+    }
   }
 
   useEffect(() => {
@@ -68,7 +83,7 @@ function Header({ isLoading }: PropsType) {
     const page = query.get("page");
 
     setFilter({
-      country: (country as Country) || "",
+      country: (country as Country) || "us",
       category: (category as Category) || "",
       keywords: q || "",
       page: parseInt(page || "1"),
@@ -90,6 +105,7 @@ function Header({ isLoading }: PropsType) {
             isLoading={isLoading}
             name="country"
             label="Country"
+            value={query.get("country") || country}
             defaultValue={query.get("country") || ""}
             data={countryList}
             setValue={changeCountry}
@@ -102,6 +118,7 @@ function Header({ isLoading }: PropsType) {
             isLoading={isLoading}
             name="category"
             label="Category"
+            value={category}
             defaultValue={query.get("category") || ""}
             data={categoryList}
             setValue={changeCategory}

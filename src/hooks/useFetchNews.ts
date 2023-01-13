@@ -38,13 +38,23 @@ type TopHeadlines = CommonProps & {
   category?: string;
 };
 
-type PropsType = Everything | TopHeadlines;
+export type FetchNews = Everything | TopHeadlines;
+// type FetchNews = {
+//   q?: string;
+//   sortBy?: "relevancy" | "popularity" | "publishedAt";
+//   pageSize?: number;
+//   page?: number;
+//   param?: "everything" | "top-headlines";
+//   country?: string;
+//   category?: string;
+// };
 
-const useFetchNews = (props: PropsType, resHandler?: ResHandler) => {
+const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
   const {
     q,
     sortBy,
     param = "top-headlines",
+    // param = "everything",
     pageSize = 12,
     page = 1,
     category,
@@ -64,15 +74,17 @@ const useFetchNews = (props: PropsType, resHandler?: ResHandler) => {
   if (sortBy) url += `&url=${sortBy}`;
 
   // consoles
-  // console.info(url);
+  // console.info("country", country);
+  // console.info(baseURL + url);
 
   return useQuery<SuccessRes, ErrorRes>({
-    queryKey: ["top-headings", url],
-    queryFn: () => axios.get(baseURL + url).then((res) => res.data),
+    queryKey: ["top-headings"],
+    queryFn: () => axios.get("news.json").then((res) => res.data),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     onSuccess: resHandler?.onSuccess,
     onError: resHandler?.onError,
+    retry: false,
     // staleTime: Infinity,
     // initialData: {},
     // select: (res) => res
