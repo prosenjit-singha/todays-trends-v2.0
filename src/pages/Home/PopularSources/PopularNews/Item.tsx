@@ -23,7 +23,9 @@ function Item({ article }: Props) {
       </ImageContainer>
       <Divider flexItem orientation="vertical" sx={{ mx: 1 }} />
       <Stack width="calc(100% - 60px)">
-        <Title href={article.url}>{article.title}</Title>
+        <Title href={article.url} target="_blank">
+          {article.title}
+        </Title>
         <Typography color="text.secondary" fontSize="small">
           {article.source.name}
         </Typography>

@@ -10,7 +10,9 @@ type Props = {
 function Article({ data }: Props) {
   return (
     <Box>
-      <Title>{data.title}</Title>
+      <Title href={data.url} target="_blank">
+        {data.title}
+      </Title>
       <Stack
         direction="row"
         spacing={1}
@@ -37,6 +39,7 @@ export default Article;
 
 const Title = styled("a")`
   cursor: pointer;
+  color: ${({ theme }) => theme.palette.text.primary};
   font-size: 1.1rem;
   font-weight: 400;
   margin-block: 0.5rem;

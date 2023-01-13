@@ -60,24 +60,24 @@ const hotCategories = [
     name: "Technology",
     value: "technology",
     bgImageURL: "https://source.unsplash.com/random/380×200/?technology",
-    path: "/news",
+    path: "/news?category=technology",
   },
   {
     name: "Business",
     value: "business",
     bgImageURL: "https://source.unsplash.com/random/380×200/?business",
-    path: "/news",
+    path: "/news?category=business",
   },
   {
     name: "Science",
     value: "science",
     bgImageURL: "https://source.unsplash.com/random/380×200/?science",
-    path: "/news",
+    path: "/news?category=science",
   },
   {
     name: "Health",
     value: "health",
     bgImageURL: "https://source.unsplash.com/random/380×200/?health",
-    path: "/news",
+    path: "/news?category=health",
   },
 ];

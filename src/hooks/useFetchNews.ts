@@ -67,8 +67,8 @@ const useFetchNews = (props: PropsType, resHandler?: ResHandler) => {
   // console.info(url);
 
   return useQuery<SuccessRes, ErrorRes>({
-    queryKey: ["top-headings"],
-    queryFn: () => axios.get("news.json").then((res) => res.data),
+    queryKey: ["top-headings", url],
+    queryFn: () => axios.get(baseURL + url).then((res) => res.data),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     onSuccess: resHandler?.onSuccess,
