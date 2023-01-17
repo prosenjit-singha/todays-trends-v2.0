@@ -3,6 +3,9 @@ import { createTheme } from "@mui/material";
 export const darkMode = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      main: "#ff3b3b",
+    },
   },
   shape: {
     borderRadius: 0,

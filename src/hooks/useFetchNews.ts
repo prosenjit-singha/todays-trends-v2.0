@@ -64,7 +64,7 @@ const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
     sources,
   } = props;
 
-  let baseURL = `https://newsapi.org/v2/${param}?apiKey=${process.env.REACT_APP_NEWS_API}`;
+  let baseURL = `https://newsapi.org/v2/${param}?apiKey=${process.env.REACT_APP_NEWS_API_DEV}`;
 
   let url = "";
 
