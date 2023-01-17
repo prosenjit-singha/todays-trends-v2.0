@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Article from "../Types/Article.types";
+import newsFallBackData from "../data/newsFallBack.json";
 
 type SuccessRes = {
   status: string;
@@ -64,7 +65,7 @@ const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
     sources,
   } = props;
 
-  let baseURL = `https://newsapi.org/v2/${param}?apiKey=${process.env.REACT_APP_NEWS_API_DEV}`;
+  let baseURL = `https://newsapi.org/v2/${param}?apiKey=${process.env.REACT_APP_NEWS_API}`;
 
   let url = "";
 
@@ -81,20 +82,29 @@ const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
   // console.info("country", country);
   // console.info(baseURL + url);
 
-  return useQuery<SuccessRes, ErrorRes>({
+  return useQuery<SuccessRes, SuccessRes>({
     queryKey: ["top-headings", url],
-    queryFn: () => axios.get(baseURL + url).then((res) => res.data),
+    queryFn: () =>
+      axios
+        .get(baseURL + url)
+        .then((res) => res.data)
+        .catch((err) => {
+          console.warn(
+            "NewsAPI daily limit reached! the results are fallback data."
+          );
+          return newsFallBackData;
+        }),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     onSuccess: resHandler?.onSuccess,
-    onError: resHandler?.onError,
+    // onError: resHandler?.onError,
     retry: false,
 
     // staleTime: Infinity,
     // initialData: {},
     // select: (res) => res
     // onSuccess: (res) => console.info(res),
-    // onError: (err) => console.error(err),
+    // onError: (err) => console.warn(err),
   });
 };
 

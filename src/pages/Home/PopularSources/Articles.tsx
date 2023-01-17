@@ -18,7 +18,7 @@ function Articles() {
   const source1News = data1?.articles || [];
   const source2News = data2?.articles || [];
   const source3News = data3?.articles || [];
-  console.info("source 1", source1News);
+  // console.info("source 1", source1News);
   return (
     <Grid container spacing={3}>
       {/* Source 1 stack */}
