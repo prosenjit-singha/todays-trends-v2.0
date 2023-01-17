@@ -183,6 +183,9 @@ const AlanProvider = ({ children }: PropsType) => {
         onCommand: ({ command, payload }: ON_COMMAND_PROPS) => {
           switch (command) {
             case "news-by-terms":
+              window.dispatchEvent(
+                new CustomEvent(command, { detail: payload })
+              );
               break;
             case "news-by-category":
               window.dispatchEvent(

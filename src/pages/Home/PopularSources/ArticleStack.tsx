@@ -10,7 +10,9 @@ function ArticleStack({ articles }: Props) {
   return (
     <Stack width="100%">
       <Header>
-        <HeaderImage src="https://source.unsplash.com/random/" />
+        <HeaderImage
+          src={articles[0].urlToImage || "https://source.unsplash.com/random/"}
+        />
       </Header>
       <Article data={articles[0]} />
       <Divider sx={{ mt: 1 }} />

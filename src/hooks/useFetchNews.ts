@@ -61,6 +61,7 @@ const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
     page = 1,
     category,
     country,
+    sources,
   } = props;
 
   let baseURL = `https://newsapi.org/v2/${param}?apiKey=${process.env.REACT_APP_NEWS_API}`;
@@ -71,6 +72,7 @@ const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
   if (country) url += `&country=${country}`;
   if (category) url += `&category=${category}`;
   if (pageSize) url += `&pageSize=${pageSize}`;
+  if (sources) url += `&sources=${sources}`;
   if (page) url += `&page=${page}`;
   // eslint-disable-next-line
   if (sortBy) url += `&url=${sortBy}`;
@@ -80,13 +82,14 @@ const useFetchNews = (props: FetchNews, resHandler?: ResHandler) => {
   // console.info(baseURL + url);
 
   return useQuery<SuccessRes, ErrorRes>({
-    queryKey: ["top-headings"],
-    queryFn: () => axios.get("news.json").then((res) => res.data),
+    queryKey: ["top-headings", url],
+    queryFn: () => axios.get(baseURL + url).then((res) => res.data),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     onSuccess: resHandler?.onSuccess,
     onError: resHandler?.onError,
     retry: false,
+
     // staleTime: Infinity,
     // initialData: {},
     // select: (res) => res
